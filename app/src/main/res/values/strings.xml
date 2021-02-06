@@ -3,4 +3,22 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="Widok_1">Wybierz zwierzaka</string>
+    <string name="Avatar_Button"></string>
+    <string name="Add_Animal_Button"></string>
+    <string name="avatar">avatar</string>
+    <string name="title_activity_panel_kota">PanelKota</string>
+    <string name="imie_panel_kota">Imię</string>
+    <string name="wiek_panel_kota">Wiek</string>
+    <string name="choroby_panel_kota">Choroby</string>
+    <string name="leki_panel_kota">Leki</string>
+    <string name="zabiegi_panel_kota">Zabiegi</string>
+    <string name="imie_edit_text"></string>
+    <string name="wiek_edit_text"></string>
+    <string name="choroby_edit_text"></string>
+    <string name="leki_edit_text"></string>
+    <string name="zabiegi_edit_text"></string>
+
+
 </resources>

@@ -7,8 +7,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -65,5 +67,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         //zamykanie się navigation bar po wybraniu case
         return true;
+    }
+
+    //przycisk Dodaj
+    public void Dodaj(View view) {
+        Intent i = new Intent(this, AddAnimalActivity.class);
+        startActivity(i);
     }
 }
