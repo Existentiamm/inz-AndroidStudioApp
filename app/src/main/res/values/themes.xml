@@ -14,6 +14,8 @@
         <!-- Customize your theme here. -->
     </style>
 
+<!-- potrzebny do NavigationBar. W nowej wersji nie używa się AppTheme i nie ma ich w styles.-->
+    <!-- plik styles trzeba stworzyć samodzielnie, a używa się Theme -->
     <style name ="Theme.MyApplication.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
