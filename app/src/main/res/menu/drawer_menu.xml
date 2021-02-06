@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_kalendarz"
+            android:icon="@drawable/ic_kalendarz"
+            android:title="Kalendarz"></item>
+
+        <item
+            android:id="@+id/nav_leki"
+            android:icon="@drawable/ic_leki"
+            android:title="Leki"></item>
+        <item
+            android:id="@+id/nav_zabiegi"
+            android:icon="@drawable/ic_zabiegi"
+            android:title="Zabiegi"></item>
+        <item
+            android:id="@+id/nav_choroby"
+            android:icon="@drawable/ic_choroby"
+            android:title="Choroby"></item>
+    </group>
+</menu>
