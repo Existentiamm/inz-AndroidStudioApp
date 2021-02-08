@@ -24,11 +24,23 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
 
             />
+<!-- Frame Layout ma nam blokować obszar ekranu, żeby coś wyświelić, więc blokujemy to pod NavigationBar -->
+<!-- zaraz pod nav_header. Powinien nam przechowywać jeden obiekt typu child, żeby było łatwiej-->
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/fragment_container"/>
+            android:id="@+id/fragment_container">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floatingActionButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:layout_gravity="bottom"
+                app:srcCompat="@drawable/ic_add_animal"
+                android:onClick="Dodaj"/>
+        </FrameLayout>
 
     </LinearLayout>
 
@@ -36,9 +48,10 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:id="@+id/nav_view"
+        android:id="@+id/pełny_widok_navigation"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/drawer_menu"/>
+    <!-- 1. podpięcie drawer_menu jako menu oraz nav_header jako "głowy" całego layout navigation bar -->
 
 
 

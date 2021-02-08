@@ -19,6 +19,7 @@
     <string name="choroby_edit_text"></string>
     <string name="leki_edit_text"></string>
     <string name="zabiegi_edit_text"></string>
+    <string name="imie_zwierzaka_navigation_bar">Imię kota</string>
 
 
 </resources>

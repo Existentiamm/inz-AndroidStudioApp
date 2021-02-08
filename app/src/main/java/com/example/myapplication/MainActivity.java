@@ -23,21 +23,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //typ toolbar, bo taki mamy typ, podpięcie xml'a z javą poprzez R.id.toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
+        //podstawowa metodą do stworzenia navigation bar. setSupportActionBar ustawia toolbar jako pasek aplikacji dla danej aktywności.
         setSupportActionBar(toolbar);
 
+        //przekazanie DrawerLayout do zmiennej
         drawer = findViewById(R.id.drawer_layout);
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        //przekazanie już scalonego w activity_main nav_header i drawer_menu jako NavigationView
+        //setNavigationItemSelectedListener jest interfejsem, który przechwytuje nam NavigationView
+        NavigationView navigationView = findViewById(R.id.pełny_widok_navigation);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_open);
+
+        //klasa, która zapewnia powiązanie funkcjonalności DrawerLayout oraz ActionBar użytego w NavigationBar,
+        //zapewnia ona ten przycisk po lewej stronie
+        //new ActionBarDrawerToggle(context, layout_którego używamy, pasek aplikacji(toolbar), przekazanie string open, przekazanie string close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+        //bedzie nam się kręci przycisk(przełącznik==toggle) razem z działaniem całego navigationBar
 
     }
 
     @Override
+    //nie wchodzimy od razu z aplikacji po wciśnięciu przycisku powróć
     public void onBackPressed() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
@@ -52,6 +63,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             //zgoda na przejście do stworzonego nowego fragmentu a tam odwalam reszte
             case R.id.nav_kalendarz:
+                //getSupportFragmentManager zwraca nam fragmentManager, który jest połączony z danych fragmentem
+                //replace ( z czego podmieniam, na co podmieniam, wywołaj)
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new KalendarzFragment()).commit();
                 break;
             case R.id.nav_leki:

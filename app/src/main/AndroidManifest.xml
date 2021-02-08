@@ -14,7 +14,7 @@
             android:name=".MainActivity"
             android:theme="@style/Theme.MyApplication.NoActionBar">
 
-            <!-- o to to właśnie się dodaje -->
+            <!-- używam theme NoActionBar, żeby Android nie używał native ActionBar -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
