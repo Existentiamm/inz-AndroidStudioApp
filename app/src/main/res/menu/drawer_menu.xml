@@ -22,5 +22,6 @@
             android:id="@+id/nav_choroby"
             android:icon="@drawable/ic_choroby"
             android:title="Choroby"></item>
+
     </group>
 </menu>

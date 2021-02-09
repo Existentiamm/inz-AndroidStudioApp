@@ -18,7 +18,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/design_default_color_primary"
+            android:background="#051937"
             android:elevation="10dp"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
@@ -50,7 +50,8 @@
         android:layout_gravity="start"
         android:id="@+id/pełny_widok_navigation"
         app:headerLayout="@layout/nav_header"
-        app:menu="@menu/drawer_menu"/>
+        app:menu="@menu/drawer_menu"
+        android:background="#008FB2"/>
     <!-- 1. podpięcie drawer_menu jako menu oraz nav_header jako "głowy" całego layout navigation bar -->
 
 
