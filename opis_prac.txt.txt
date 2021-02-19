@@ -1,0 +1,9 @@
+5/02/2021 
+1. ogarnięcie gita
+2. mozolne męczenie się z menu 
+
+6/02/2020 
+1. dorzucenie do gita kompletnego brancha z Navigation Bar 
+2. przestawienie się na Androidx. 
+3. złożenie navigation bar + poprzednie widoki
+4. podpięcie stringów
