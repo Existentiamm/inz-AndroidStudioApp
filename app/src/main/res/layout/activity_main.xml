@@ -41,7 +41,9 @@
                 app:srcCompat="@drawable/ic_add_animal"
                 app:backgroundTint="@color/second_background"
                 android:layout_margin="15dp"
-                android:onClick="Dodaj"/>
+                android:onClick="Dodaj"
+                />
+
         </FrameLayout>
 
     </LinearLayout>

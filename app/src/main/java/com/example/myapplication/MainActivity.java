@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import androidx.annotation.FloatRange;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,16 +13,29 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
+    //floating button
+    public FloatingActionButton floatingActionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+       /* //floatingButton
+        floatingActionButton = findViewById(R.id.floatingActionButton2);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AddAnimalActivity.class);
+                startActivity(intent);
+            }
+        });*/
 
         //typ toolbar, bo taki mamy typ, podpięcie xml'a z javą poprzez R.id.toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -45,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
         //bedzie nam się kręci przycisk(przełącznik==toggle) razem z działaniem całego navigationBar
 
-    }
+    } //koniec klasy onCreate
 
     @Override
     //nie wchodzimy od razu z aplikacji po wciśnięciu przycisku powróć
@@ -81,10 +95,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //zamykanie się navigation bar po wybraniu case
         return true;
     }
-
     //przycisk Dodaj
     public void Dodaj(View view) {
         Intent i = new Intent(this, AddAnimalActivity.class);
         startActivity(i);
     }
-}
+
+}//koniec klasy

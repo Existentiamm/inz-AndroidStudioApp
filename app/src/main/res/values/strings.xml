@@ -21,5 +21,6 @@
     <string name="zabiegi_edit_text"></string>
     <string name="imie_zwierzaka_navigation_bar">Imię kota</string>
 
-
+// kalendarz
+    <string name="zapisz_date">zapisz date</string>
 </resources>
