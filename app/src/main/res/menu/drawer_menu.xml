@@ -6,6 +6,10 @@
     <group android:checkableBehavior="single">
         <!--stworzenie id dla każdego item, którego potem podpinamy w case i używamy do przejścia do odpowiedniego fragmentu -->
         <item
+            android:id="@+id/nav_lista"
+            android:icon="@drawable/ic_pets"
+            android:title="Pupile"></item>
+        <item
             android:id="@+id/nav_kalendarz"
             android:icon="@drawable/ic_kalendarz"
             android:title="Kalendarz"></item>
@@ -22,6 +26,12 @@
             android:id="@+id/nav_choroby"
             android:icon="@drawable/ic_choroby"
             android:title="Choroby"></item>
+
+        <item
+            android:id="@+id/nav_dodanie"
+            android:icon="@drawable/ic_add_cat"
+            android:title="Dodaj zwierzę"></item>
+
 
     </group>
 </menu>

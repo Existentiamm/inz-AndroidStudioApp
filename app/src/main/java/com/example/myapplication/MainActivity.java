@@ -90,11 +90,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_choroby:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ChorobyFragment()).commit();
                 break;
+            case R.id.nav_dodanie:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DodanieFragment()).commit();
+                break;
+            case R.id.nav_lista:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PetsFragment()).commit();
+                break;
         }
         drawer.closeDrawer(GravityCompat.START);
         //zamykanie się navigation bar po wybraniu case
         return true;
     }
+
     //przycisk Dodaj
     public void Dodaj(View view) {
         Intent i = new Intent(this, AddAnimalActivity.class);
