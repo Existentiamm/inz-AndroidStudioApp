@@ -28,22 +28,31 @@
 <!-- zaraz pod nav_header. Powinien nam przechowywać jeden obiekt typu child, żeby było łatwiej-->
 
         <FrameLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/fragment_container">
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floatingActionButton2"
+
+            <io.github.yavski.fabspeeddial.FabSpeedDial
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:clickable="true"
-                android:layout_gravity="bottom|right"
-                app:srcCompat="@drawable/ic_add_animal"
-                app:backgroundTint="@color/second_background"
-                android:layout_margin="15dp"
-                android:onClick="Dodaj"
-                />
+                android:id="@+id/fabSpeedDial"
+                android:layout_gravity="bottom|end"
+                app:fabGravity="bottom_end"
+                app:fabMenu="@menu/extra_menu"
+                app:miniFabBackgroundTint="@android:color/white"
+                app:miniFabDrawableTint="?attr/colorPrimaryDark"
+                app:miniFabTitleTextColor="?attr/colorPrimaryDark">
+            </io.github.yavski.fabspeeddial.FabSpeedDial>
 
+            <TextView
+                android:id="@+id/wybranie_kota"
+                style="@style/TextView"
+                android:text="@string/wybranie_kota"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"/>
         </FrameLayout>
 
     </LinearLayout>

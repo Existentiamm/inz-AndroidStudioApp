@@ -35,4 +35,6 @@
     <string name="pets_title">LISTA</string>
     <!--zabiegi -->
     <string name="zabiegi_title">ZABIEGI</string>
+
+    <string name="wybranie_kota">wybranie_kota + ekran startowy, do którego chcę wracać, a nie umiem tego zrobić grrr</string>
 </resources>

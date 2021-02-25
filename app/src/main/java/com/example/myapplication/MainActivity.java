@@ -7,14 +7,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.internal.NavigationMenu;
 import com.google.android.material.navigation.NavigationView;
+
+import io.github.yavski.fabspeeddial.FabSpeedDial;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -22,10 +29,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //floating button
     public FloatingActionButton floatingActionButton;
 
+    public boolean isPop = false;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        FabSpeedDial fabSpeedDial = (FabSpeedDial) findViewById(R.id.fabSpeedDial);
+        fabSpeedDial.setMenuListener(new FabSpeedDial.MenuListener() {
+            @Override
+            public boolean onPrepareMenu(NavigationMenu navigationMenu) {
+                return true; //false : nie pokazuj menu
+            }
+
+            @Override
+            public boolean onMenuItemSelected(MenuItem menuItem) {
+                Toast.makeText(MainActivity.this, "" + menuItem.getTitle(), Toast.LENGTH_SHORT).show();
+                return true; //po kliknięciu na przycisk pokazuje jako Toast tytuł z extra_menu.
+            }
+
+            @Override
+            public void onMenuClosed() {
+
+            }
+        });
+
 
        /* //floatingButton
         floatingActionButton = findViewById(R.id.floatingActionButton2);
@@ -35,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent intent = new Intent(MainActivity.this, AddAnimalActivity.class);
                 startActivity(intent);
             }
-        });*/
+        }); inny sposób na zrobienie buttona*/
 
         //typ toolbar, bo taki mamy typ, podpięcie xml'a z javą poprzez R.id.toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -61,15 +91,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     } //koniec klasy onCreate
 
+
+
+
+
     @Override
     //nie wchodzimy od razu z aplikacji po wciśnięciu przycisku powróć
     public void onBackPressed() {
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
+       if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+
         } else {
-            super.onBackPressed();
-        }
+           super.onBackPressed();
+           finish();
+       }
+
     }
+
+
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -102,10 +142,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    //przycisk Dodaj
-    public void Dodaj(View view) {
-        Intent i = new Intent(this, AddAnimalActivity.class);
-        startActivity(i);
+
+
+    public void ZapiszDate(View view) {
+        Toast.makeText(getApplicationContext(), "ma zapisywać date", Toast.LENGTH_SHORT).show();
     }
 
 }//koniec klasy

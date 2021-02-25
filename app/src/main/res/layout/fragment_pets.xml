@@ -8,8 +8,10 @@
 
 
     <TextView
-
         android:id="@+id/pets_title"
         style="@style/TextView"
         android:text="@string/pets_title" />
+
+
+
 </androidx.appcompat.widget.LinearLayoutCompat>
