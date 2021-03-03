@@ -4,12 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_meds">
 
 
-    <TextView
-        android:id="@+id/choroby_title"
-        style="@style/TextView"
-        android:text="@string/choroby_title"
-       />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recyclewViewMeds"
+
+        />
+
+
+
+
 </androidx.appcompat.widget.LinearLayoutCompat>

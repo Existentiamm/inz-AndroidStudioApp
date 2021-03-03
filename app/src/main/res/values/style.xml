@@ -20,4 +20,16 @@
 </style>
 
 
+    <style name="Tittle_bar">
+        <item name="android:textColor">@color/background_nav</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20dp</item>
+
+    </style>
+
 </resources>

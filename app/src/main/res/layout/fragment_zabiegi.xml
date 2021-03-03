@@ -2,13 +2,21 @@
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:id="@+id/fragment_meds">
 
 
-    <TextView
-        android:id="@+id/zabiegi_title"
-        android:text="@string/zabiegi_title"
-        style="@style/TextView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recyclewViewMeds"
+
+        />
+
+
+
+
 </androidx.appcompat.widget.LinearLayoutCompat>

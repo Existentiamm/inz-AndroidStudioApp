@@ -19,6 +19,9 @@ public class HelperAdapter extends RecyclerView.Adapter {
     Context context;
     ArrayList arrayListImagine;
     ArrayList arrayListName;
+    ArrayList arrayListDisease;
+    ArrayList arrayListTreatment;
+    ArrayList arrayListMeds;
 
     public HelperAdapter(Context context, ArrayList arrayListImagine, ArrayList arrayListName) {
         this.context = context;
@@ -26,12 +29,26 @@ public class HelperAdapter extends RecyclerView.Adapter {
         this.arrayListName = arrayListName;
     }
 
+    public HelperAdapter(ArrayList arrayListDisease, ArrayList arrayListTreatment, ArrayList arrayListMeds) {
+        this.arrayListDisease = arrayListDisease;
+        this.arrayListTreatment = arrayListTreatment;
+        this.arrayListMeds = arrayListMeds;
+    }
+
+    public HelperAdapter(ArrayList arrayListTreatment){
+        this.arrayListTreatment = arrayListTreatment;
+    }
+
+
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_pets, parent, false);
-        ViewHolderClass viewHolderClass = new ViewHolderClass(view);
+        View view_pets = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_pets, parent, false);
+        View view_treatments = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_treatments, parent, false);
+
+        ViewHolderClass viewHolderClass = new ViewHolderClass(view_pets);
+        ViewHolderClass viewHolderClass1 = new ViewHolderClass(view_treatments);
         return viewHolderClass;
     }
 
