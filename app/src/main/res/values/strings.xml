@@ -31,10 +31,9 @@
     <string name="choroby_title">CHOROBY</string>
     <!--leki -->
     <string name="leki_title">LEKI</string>
-    <!--pets -->
-    <string name="pets_title">LISTA</string>
     <!--zabiegi -->
     <string name="zabiegi_title">ZABIEGI</string>
 
-    <string name="wybranie_kota">wybranie_kota + ekran startowy, do którego chcę wracać, a nie umiem tego zrobić grrr</string>
+    <string name="activity_main_info">Cats Health Book</string>
+    <string name="dodatkowe_informacje">dodatkowe informacje</string>
 </resources>

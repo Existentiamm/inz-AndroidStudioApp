@@ -36,12 +36,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //fragmentPetsRecyclerView
-        PetsFragment recyclerviewFragment = new PetsFragment();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.fragment_container, recyclerviewFragment);
-        fragmentTransaction.commit();
+        //fragmentChorobyRecyclerView
+        ChorobyFragment recyclerviewChorobyFragment = new ChorobyFragment();
+        FragmentManager fragmentChorobyManager = getSupportFragmentManager();
+        FragmentTransaction fragmentChorobyTransaction = fragmentChorobyManager.beginTransaction();
+        fragmentChorobyTransaction.add(R.id.linearlayout_activitymain, recyclerviewChorobyFragment);
+        fragmentChorobyTransaction.commit();
+
+
+        //fragmentLekiRecyclerView
+        LekiFragment recyclerviewLekiFragment = new LekiFragment();
+        FragmentManager fragmentLekiManager = getSupportFragmentManager();
+        FragmentTransaction fragmentLekiTransaction = fragmentLekiManager.beginTransaction();
+        fragmentLekiTransaction.add(R.id.linearlayout_activitymain, recyclerviewLekiFragment);
+        fragmentLekiTransaction.commit();
+
+        //fragmentZabiegiRecyclerView
+        ZabiegiFragment recyclerviewZabiegiFragment = new ZabiegiFragment();
+        FragmentManager fragmentZabiegiManager = getSupportFragmentManager();
+        FragmentTransaction fragmentZabiegiTransaction = fragmentZabiegiManager.beginTransaction();
+        fragmentZabiegiTransaction.add(R.id.linearlayout_activitymain, recyclerviewZabiegiFragment);
+        fragmentZabiegiTransaction.commit();
+
 
         FabSpeedDial fabSpeedDial = (FabSpeedDial) findViewById(R.id.fabSpeedDial);
         fabSpeedDial.setMenuListener(new FabSpeedDial.MenuListener() {
@@ -98,23 +114,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     } //koniec klasy onCreate
 
 
-
-
-
     @Override
     //nie wchodzimy od razu z aplikacji po wciśnięciu przycisku powróć
     public void onBackPressed() {
-       if (drawer.isDrawerOpen(GravityCompat.START)) {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
 
         } else {
-           super.onBackPressed();
-           finish();
-       }
+            super.onBackPressed();
+            finish();
+        }
 
     }
-
-
 
 
     @Override
@@ -139,15 +150,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_dodanie:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DodanieFragment()).commit();
                 break;
-            case R.id.nav_lista:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PetsFragment()).commit();
-                break;
+
         }
         drawer.closeDrawer(GravityCompat.START);
         //zamykanie się navigation bar po wybraniu case
         return true;
     }
-
 
 
     public void ZapiszDate(View view) {
