@@ -16,7 +16,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -30,11 +33,39 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawer;
     //floating button
     public FloatingActionButton floatingActionButton;
+    Toolbar myToolbar;
+    Spinner mySpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //dodanie spinera w actionBar
+        myToolbar = findViewById(R.id.toolbar);
+        mySpinner = findViewById(R.id.spinner);
+
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(MainActivity.this, R.layout.custom_spinner_item, getResources().getStringArray(R.array.names));
+        myAdapter.setDropDownViewResource(R.layout.custrom_spinner_item_dropdown);
+        mySpinner.setAdapter(myAdapter);
+
+        mySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                Toast.makeText(MainActivity.this,
+                        mySpinner.getSelectedItem().toString(),
+                        Toast.LENGTH_SHORT)
+                        .show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        }
+        );
+
 
         //fragmentChorobyRecyclerView
         ChorobyFragment recyclerviewChorobyFragment = new ChorobyFragment();

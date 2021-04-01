@@ -22,9 +22,18 @@
             android:background="@color/background_nav"
             android:elevation="10dp"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="140dp"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             />
+
+        </androidx.appcompat.widget.Toolbar>
+
 <!-- Frame Layout ma nam blokować obszar ekranu, żeby coś wyświelić, więc blokujemy to pod NavigationBar -->
 <!-- zaraz pod nav_header. Powinien nam przechowywać jeden obiekt typu child, żeby było łatwiej-->
 
@@ -56,6 +65,8 @@
                 android:layout_width="match_parent"
                 android:layout_gravity="center"/>
         </FrameLayout>
+
+
 
     </LinearLayout>
 

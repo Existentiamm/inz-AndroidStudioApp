@@ -36,4 +36,11 @@
 
     <string name="activity_main_info">Cats Health Book</string>
     <string name="dodatkowe_informacje">dodatkowe informacje</string>
+
+    <!-- spinner -->
+    <string-array name="names">
+        <item>Tośka</item>
+        <item>kot2</item>
+        <item>kot3</item>
+    </string-array>
 </resources>
