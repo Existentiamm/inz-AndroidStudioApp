@@ -1,159 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".AddAnimalActivity"
-    >
+    android:background="@color/white">
 
-    <TextView
-        android:id="@+id/imie_panel_kota"
-        style="@style/TextViewDrawerMenu"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:text="@string/imie_panel_kota"
-        app:layout_constraintBottom_toTopOf="@+id/wiek_panel_kota"
-        app:layout_constraintEnd_toStartOf="@+id/imie_edit_text"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
 
-    <TextView
-        android:id="@+id/wiek_panel_kota"
-        style="@style/TextViewDrawerMenu"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:text="@string/wiek_panel_kota"
-        app:layout_constraintBottom_toTopOf="@+id/choroby_panel_kota"
-        app:layout_constraintEnd_toStartOf="@+id/wiek_edit_text"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imie_panel_kota" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/choroby_panel_kota"
-        style="@style/TextViewDrawerMenu"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:text="@string/choroby_panel_kota"
-        app:layout_constraintBottom_toTopOf="@+id/leki_panel_kota"
-        app:layout_constraintEnd_toStartOf="@+id/choroby_edit_text"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wiek_panel_kota" />
+            <TextView
+                android:id="@+id/imie_panel_kota"
+                style="@style/AddingAnimalTextView"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:text="@string/imie_panel_kota"
+               />
 
-    <TextView
-        android:id="@+id/leki_panel_kota"
-        style="@style/TextViewDrawerMenu"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:text="@string/leki_panel_kota"
-        app:layout_constraintBottom_toTopOf="@+id/zabiegi_panel_kota"
-        app:layout_constraintEnd_toStartOf="@+id/leki_edit_text"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/choroby_panel_kota" />
+            <EditText
+                android:id="@+id/imie_edit_text"
+                style="@style/AddingAnimalTextView"
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/imie_edit_text" />
 
-    <TextView
-        android:id="@+id/zabiegi_panel_kota"
-        style="@style/TextViewDrawerMenu"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:text="@string/zabiegi_panel_kota"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/zabiegi_edit_text"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/leki_panel_kota" />
+            <TextView
+                android:id="@+id/wiek_panel_kota"
+                style="@style/AddingAnimalTextView"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:text="@string/wiek_panel_kota"
+                />
 
-    <EditText
-        android:id="@+id/imie_edit_text"
-        style="@style/TextViewDrawerMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/imie_edit_text"
-        app:layout_constraintBottom_toTopOf="@+id/wiek_edit_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imie_panel_kota"
-        app:layout_constraintTop_toTopOf="parent" />
+            <EditText
+                android:id="@+id/wiek_edit_text"
+                style="@style/AddingAnimalTextView"
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/wiek_edit_text" />
 
-    <EditText
-        android:id="@+id/wiek_edit_text"
-        style="@style/TextViewDrawerMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/wiek_edit_text"
-        app:layout_constraintBottom_toTopOf="@+id/choroby_edit_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/wiek_panel_kota"
-        app:layout_constraintTop_toBottomOf="@+id/imie_edit_text" />
+            <TextView
+                android:id="@+id/choroby_panel_kota"
+                style="@style/AddingAnimalTextView"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:text="@string/choroby_panel_kota"
+                />
 
-    <EditText
-        android:id="@+id/choroby_edit_text"
-        style="@style/TextViewDrawerMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/choroby_edit_text"
-        app:layout_constraintBottom_toTopOf="@+id/leki_edit_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/choroby_panel_kota"
-        app:layout_constraintTop_toBottomOf="@+id/wiek_edit_text" />
+            <EditText
+                android:id="@+id/choroby_edit_text"
+                style="@style/AddingAnimalTextView"
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/choroby_edit_text" />
 
-    <EditText
-        android:id="@+id/leki_edit_text"
-        style="@style/TextViewDrawerMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/leki_edit_text"
-        app:layout_constraintBottom_toTopOf="@+id/zabiegi_edit_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/leki_panel_kota"
-        app:layout_constraintTop_toBottomOf="@+id/choroby_edit_text" />
+            <TextView
+                android:id="@+id/leki_panel_kota"
+                style="@style/AddingAnimalTextView"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:text="@string/leki_panel_kota"
+                />
 
-    <EditText
-        android:id="@+id/zabiegi_edit_text"
-        style="@style/TextViewDrawerMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/zabiegi_edit_text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/zabiegi_panel_kota"
-        app:layout_constraintTop_toBottomOf="@+id/leki_edit_text" />
+            <EditText
+                android:id="@+id/leki_edit_text"
+                style="@style/AddingAnimalTextView"
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/leki_edit_text" />
 
-    <CheckBox
-        android:id="@+id/ZAPISZ"
-        style="@style/TextViewDrawerMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="zapisz"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.562"
-        app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/zabiegi_panel_kota"
+                style="@style/AddingAnimalTextView"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:text="@string/zabiegi_panel_kota"
+                />
+
+            <EditText
+                android:id="@+id/zabiegi_edit_text"
+                style="@style/AddingAnimalTextView"
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/zabiegi_edit_text" />
+
+            <CheckBox
+                android:id="@+id/ZAPISZ"
+                style="@style/AddingAnimalTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="zapisz" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

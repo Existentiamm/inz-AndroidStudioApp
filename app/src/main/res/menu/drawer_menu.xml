@@ -5,10 +5,7 @@
 
     <group android:checkableBehavior="single">
         <!--stworzenie id dla każdego item, którego potem podpinamy w case i używamy do przejścia do odpowiedniego fragmentu -->
-        <item
-            android:id="@+id/nav_lista"
-            android:icon="@drawable/ic_pets"
-            android:title="Pupile"></item>
+
         <item
             android:id="@+id/nav_kalendarz"
             android:icon="@drawable/ic_kalendarz"
