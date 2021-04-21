@@ -13,7 +13,7 @@ R.drawable.cat1, R.drawable.cat2, R.drawable.cat3, R.drawable.toska
     };
 
     public static String[] meds = new String[]{
-            "meds1", "meds2", "meds3", "meds4"
+            "meds1", "meds2", "meds3", "meds4", "meds5", "meds6", "meds7"
     };
 
 
@@ -26,7 +26,7 @@ R.drawable.cat1, R.drawable.cat2, R.drawable.cat3, R.drawable.toska
     };
 
     public static String[] dodatkowe_informaje = new String[]{
-            "dodatkowe informacje", "dodatkowe informacje", "dodatkowe informacje", "dodatkowe informacje"
+            "dodatkowe informacje", "dodatkowe informacje", "dodatkowe informacje", "dodatkowe informacje", "dodatkowe informacje", "dodatkowe informacje", "dodatkowe informacje"
     };
 
 }

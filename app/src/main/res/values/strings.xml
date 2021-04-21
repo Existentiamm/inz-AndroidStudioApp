@@ -36,7 +36,7 @@
 
     <string name="activity_main_info">Cats Health Book</string>
     <string name="dodatkowe_informacje">dodatkowe informacje</string>
-
+    <string name="button_dodaj_do_listy">dodaj</string>
     <!-- spinner -->
     <string-array name="names">
         <item>Tośka</item>

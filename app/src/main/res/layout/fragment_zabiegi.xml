@@ -8,14 +8,26 @@
     android:id="@+id/fragment_zabiegi">
 
 
-
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/recyclewViewTreatments"
+        android:layout_marginBottom="100px"
 
         />
+    <Button
+        android:id="@+id/button_dodaj_do_listy_zabiegi"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/button_dodaj_do_listy" />
 
+
+</RelativeLayout>
 
 
 

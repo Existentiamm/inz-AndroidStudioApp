@@ -8,14 +8,28 @@
     android:id="@+id/fragment_choroby">
 
 
-
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/recyclewViewDiseases"
+        android:layout_marginBottom="100px"
 
         />
 
+    <Button
+        android:id="@+id/button_dodaj_do_listy_choroby"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:text="@string/button_dodaj_do_listy">
+
+    </Button>
+
+</RelativeLayout>
 
 
 
