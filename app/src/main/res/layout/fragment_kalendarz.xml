@@ -17,6 +17,7 @@
         android:layout_width="400dp"
         android:layout_height="wrap_content">
     <CalendarView
+        android:id="@+id/calendarView"
         android:layout_marginLeft="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -25,15 +26,7 @@
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <Button
-        android:id="@+id/zapisz_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/zapisz"
-        android:paddingTop="5dp"
-        android:onClick="ZapiszDate"
-        />
+
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

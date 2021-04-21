@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -36,6 +37,7 @@ final private String TAG = getClass().getSimpleName();
     public FloatingActionButton floatingActionButton;
     Toolbar myToolbar;
     Spinner mySpinner;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -192,8 +194,6 @@ final private String TAG = getClass().getSimpleName();
     }
 
 
-    public void ZapiszDate(View view) {
-        Toast.makeText(getApplicationContext(), "ma zapisywać date", Toast.LENGTH_SHORT).show();
-    }
+
 
 }//koniec klasy
