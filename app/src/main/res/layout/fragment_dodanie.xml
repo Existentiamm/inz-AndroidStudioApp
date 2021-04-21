@@ -36,10 +36,9 @@
             <TextView
                 android:id="@+id/wiek_panel_kota"
                 style="@style/AddingAnimalTextView"
-                android:layout_width="70dp"
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
-                android:text="@string/wiek_panel_kota"
-                />
+                android:text="@string/wiek_panel_kota" />
 
             <EditText
                 android:id="@+id/wiek_edit_text"
@@ -101,13 +100,15 @@
                 android:inputType="textPersonName"
                 android:text="@string/zabiegi_edit_text" />
 
-            <CheckBox
-                android:id="@+id/ZAPISZ"
+            <Button
+                android:id="@+id/zapisz_dane"
                 style="@style/AddingAnimalTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="zapisz" />
+                android:textColor="@color/white"
+                android:text="@string/zapisz" />
+
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

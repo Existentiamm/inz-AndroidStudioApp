@@ -14,6 +14,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -29,7 +30,7 @@ import com.google.android.material.navigation.NavigationView;
 import io.github.yavski.fabspeeddial.FabSpeedDial;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
+final private String TAG = getClass().getSimpleName();
     private DrawerLayout drawer;
     //floating button
     public FloatingActionButton floatingActionButton;
@@ -154,6 +155,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             super.onBackPressed();
             finish();
+
+            Log.d(TAG, "onBackPressed");
         }
 
     }

@@ -13,7 +13,7 @@
 
     <!-- dodaj zwierzę fragment-->
     <string name="imie_panel_kota">Imię</string>
-    <string name="wiek_panel_kota">Wiek</string>
+    <string name="wiek_panel_kota">Rok urodzenia</string>
     <string name="choroby_panel_kota">Choroby</string>
     <string name="leki_panel_kota">Leki</string>
     <string name="zabiegi_panel_kota">Zabiegi</string>
@@ -25,7 +25,7 @@
 
 
     <!-- kalendarz -->
-    <string name="zapisz_date">zapisz date</string>
+    <string name="zapisz">zapisz</string>
     <string name="kalendarz_title">KALENDARZ</string>
     <!--choroby -->
     <string name="choroby_title">CHOROBY</string>
