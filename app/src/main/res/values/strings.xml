@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">Cats Health Book</string>
+    <!-- navigation drawer -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="Widok_1">Wybierz zwierzaka</string>
+    <string name="imie_zwierzaka_navigation_bar">Imię kota</string>
+    <string name="Avatar_Button"></string>
+    <string name="Add_Animal_Button"></string>
+    <string name="avatar">avatar</string>
+    <string name="title_activity_panel_kota">PanelKota</string>
+
+    <!-- dodaj zwierzę fragment-->
+    <string name="imie_panel_kota">Imię</string>
+    <string name="wiek_panel_kota">Rok urodzenia</string>
+    <string name="choroby_panel_kota">Choroby</string>
+    <string name="leki_panel_kota">Leki</string>
+    <string name="zabiegi_panel_kota">Zabiegi</string>
+    <string name="imie_edit_text"></string>
+    <string name="wiek_edit_text"></string>
+    <string name="choroby_edit_text"></string>
+    <string name="leki_edit_text"></string>
+    <string name="zabiegi_edit_text"></string>
+
+
+    <!-- kalendarz -->
+    <string name="zapisz">zapisz</string>
+    <string name="cofnij">cofnij</string>
+    <string name="kalendarz_title">KALENDARZ</string>
+    <string name="pokaz_Kalendarz">kalendarz</string>
+    <!--choroby -->
+    <string name="choroby_title">CHOROBY</string>
+    <!--leki -->
+    <string name="leki_title">LEKI</string>
+    <!--zabiegi -->
+    <string name="zabiegi_title">ZABIEGI</string>
+
+    <string name="activity_main_info">Cats Health Book</string>
+    <string name="dodatkowe_informacje">dodatkowe informacje</string>
+    <string name="button_dodaj_do_listy">dodaj</string>
+    <!-- spinner -->
+    <string-array name="names">
+        <item>Tośka</item>
+        <item>kot2</item>
+        <item>kot3</item>
+    </string-array>
+
+
+    <string name="dodaj_leki_text">coś tu jest na razie</string>
+</resources>

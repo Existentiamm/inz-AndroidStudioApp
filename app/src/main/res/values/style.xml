@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextView">
+        <item name="android:textColor">#D3C8E4</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">40dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+<style name="TextViewDrawerMenu">
+    <item name="android:textColor">@color/black</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:fontFamily">sans-serif</item>
+</style>
+
+
+    <style name="AddingAnimalTextView">
+        <item name="android:textColor">@color/background_nav</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+
+
+    <style name="Tittle_bar">
+        <item name="android:textColor">@color/background_nav</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20dp</item>
+
+    </style>
+
+</resources>

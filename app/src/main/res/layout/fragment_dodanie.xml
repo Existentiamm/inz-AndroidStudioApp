@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/imie_panel_kota"
+                style="@style/AddingAnimalTextView"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:text="@string/imie_panel_kota" />
+
+            <EditText
+                android:id="@+id/imie_edit_text"
+                style="@style/AddingAnimalTextView"
+                android:layout_width="300dp"
+
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/imie_edit_text" />
+
+            <TextView
+                android:id="@+id/wiek_panel_kota"
+                style="@style/AddingAnimalTextView"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="@string/wiek_panel_kota" />
+
+            <EditText
+                android:id="@+id/wiek_edit_text"
+                style="@style/AddingAnimalTextView"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/wiek_edit_text" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/data_panel_kota"
+                    style="@style/AddingAnimalTextView"
+                    android:layout_width="169dp"
+                    android:layout_height="wrap_content"
+                    android:text="Zapisanie ważnej daty" />
+
+                <Button
+                    android:id="@+id/pokaz_kalendarz"
+                    style="@style/AddingAnimalTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="@string/pokaz_Kalendarz"
+                    android:textColor="@color/white"></Button>
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/data_edit_text"
+                style="@style/AddingAnimalTextView"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/wiek_edit_text" />
+
+            <TextView
+                android:id="@+id/choroby_panel_kota"
+                style="@style/AddingAnimalTextView"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="@string/choroby_panel_kota" />
+
+            <EditText
+                android:id="@+id/choroby_edit_text"
+                style="@style/AddingAnimalTextView"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/choroby_edit_text" />
+
+            <TextView
+                android:id="@+id/leki_panel_kota"
+                style="@style/AddingAnimalTextView"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="@string/leki_panel_kota" />
+
+            <EditText
+                android:id="@+id/leki_edit_text"
+                style="@style/AddingAnimalTextView"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/leki_edit_text" />
+
+            <TextView
+                android:id="@+id/zabiegi_panel_kota"
+                style="@style/AddingAnimalTextView"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="@string/zabiegi_panel_kota" />
+
+            <EditText
+                android:id="@+id/zabiegi_edit_text"
+                style="@style/AddingAnimalTextView"
+                android:layout_width="300dp"
+
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/zabiegi_edit_text" />
+
+            <Button
+                android:id="@+id/zapisz_dane"
+                style="@style/AddingAnimalTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/zapisz"
+                android:textColor="@color/white" />
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</RelativeLayout>
