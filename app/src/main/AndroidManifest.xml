@@ -9,13 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
+        <activity android:name=".KalendarzView"></activity>
         <activity
             android:name=".DodajZabiegi"
             android:label="Dodanie zabiegu"
-            android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".DodajChoroby"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".DodajChoroby"
             android:label="Dodanie choroby"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".DodajLeki"
             android:label="Dodanie leku"

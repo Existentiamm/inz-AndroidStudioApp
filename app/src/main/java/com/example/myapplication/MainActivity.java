@@ -8,7 +8,6 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,6 +27,7 @@ import com.example.myapplication.Fragments.LekiFragment;
 import com.example.myapplication.Fragments.ZabiegiFragment;
 import com.google.android.material.internal.NavigationMenu;
 import com.google.android.material.navigation.NavigationView;
+import com.example.myapplication.KalendarzView;
 
 import io.github.yavski.fabspeeddial.FabSpeedDial;
 
