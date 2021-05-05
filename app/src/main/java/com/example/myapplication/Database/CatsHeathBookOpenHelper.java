@@ -2,6 +2,7 @@ package com.example.myapplication.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
@@ -49,11 +50,7 @@ public class CatsHeathBookOpenHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void openDatabase() {
-        db = this.getWritableDatabase();
-    }
-
-    public void addMed(String nazwa_leku, String dodatkowe_informacje){
+    public void addMed(String nazwa_leku, String dodatkowe_informacje) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -61,43 +58,45 @@ public class CatsHeathBookOpenHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_DODATKOWE_INFORMACJE, dodatkowe_informacje);
 
         long result = db.insert(CatsHealthBookDatabseContract.SpisLekowEntry.TABLE_NAME, null, cv);
-    if(result == -1){
-        Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
-    }else {
-        Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+        if (result == -1) {
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+        }
     }
-    };
 
-    public void addDisease(String nazwa_choroby, String dodatkowe_informacje){
+    ;
+
+    public void addDisease(String nazwa_choroby, String dodatkowe_informacje) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
         cv.put(COLUMN_NAZWA_CHOROBY, nazwa_choroby);
         cv.put(CatsHealthBookDatabseContract.SpisChorobEntry.COLUMN_DODATKOWE_INFORMACJE, dodatkowe_informacje);
         long result = db.insert(CatsHealthBookDatabseContract.SpisChorobEntry.TABLE_NAME, null, cv);
-        if(result == -1){
+        if (result == -1) {
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
         }
     }
 
 
-    public void addTreatment(String nazwa_zabiegu, String dodatkowe_informacje){
+    public void addTreatment(String nazwa_zabiegu, String dodatkowe_informacje) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
         cv.put(COLUMN_NAZWA_ZABIEGU, nazwa_zabiegu);
         cv.put(CatsHealthBookDatabseContract.SpisZabiegowEntry.COLUMN_DODATKOWE_INFORMACJE, dodatkowe_informacje);
         long result = db.insert(CatsHealthBookDatabseContract.SpisZabiegowEntry.TABLE_NAME, null, cv);
-        if(result == -1){
+        if (result == -1) {
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void addCat(String nazwa_zabiegu, String nazwa_leku, String nazwa_choroby, String data, String rok_urodzenia){
+    public void addCat(String nazwa_zabiegu, String nazwa_leku, String nazwa_choroby, String data, String rok_urodzenia) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -107,25 +106,58 @@ public class CatsHeathBookOpenHelper extends SQLiteOpenHelper {
         cv.put(CatsHealthBookDatabseContract.SpisZwierzatEntry.COLUMN_DATA, data);
         cv.put(CatsHealthBookDatabseContract.SpisZwierzatEntry.COLUMN_ROK_URODZENIA, rok_urodzenia);
         long result = db.insert(CatsHealthBookDatabseContract.SpisZwierzatEntry.TABLE_NAME, null, cv);
-        if(result == -1){
+        if (result == -1) {
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void addDate(String data, String dodatkowe_informacje){
+    public void addDate(String data, String dodatkowe_informacje) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
         cv.put(COLUMN_DATA, data);
         cv.put(CatsHealthBookDatabseContract.KalendarzEntry.COLUMN_DODATKOWE_INFORMACJE, dodatkowe_informacje);
         long result = db.insert(CatsHealthBookDatabseContract.KalendarzEntry.TABLE_NAME, null, cv);
-        if(result == -1){
+        if (result == -1) {
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
         }
+    }
+
+
+    public Cursor readAllDataMeds() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM " + CatsHealthBookDatabseContract.SpisLekowEntry.TABLE_NAME;
+        Cursor cursor = null;
+        if (db != null) {
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+
+
+    }
+
+    public Cursor readAllDataTreatments() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM " + CatsHealthBookDatabseContract.SpisZabiegowEntry.TABLE_NAME;
+        Cursor cursor = null;
+        if (db != null) {
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+
+    public Cursor readAllDataDiseases() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM " + CatsHealthBookDatabseContract.SpisChorobEntry.TABLE_NAME;
+        Cursor cursor = null;
+        if (db != null) {
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
     }
 }
 

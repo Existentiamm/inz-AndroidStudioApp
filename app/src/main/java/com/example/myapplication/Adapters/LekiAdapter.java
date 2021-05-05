@@ -14,51 +14,45 @@ import com.example.myapplication.R;
 
 import java.util.ArrayList;
 
-public class LekiAdapter extends RecyclerView.Adapter {
-    Context context;
-    ArrayList arrayListMeds;
+public class LekiAdapter extends RecyclerView.Adapter<LekiAdapter.MyViewHolder> {
 
+    private Context context;
+    private ArrayList meds, dodatkowe_informacje;
 
-    public LekiAdapter(Context context, ArrayList arrayListMeds){
-        this.arrayListMeds = arrayListMeds;
+    public LekiAdapter(Context context, ArrayList meds, ArrayList dodatkowe_informacje) {
+        this.context = context;
+        this.meds = meds;
+        this.dodatkowe_informacje = dodatkowe_informacje;
     }
 
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        View view_meds = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_meds, parent, false);
-        ViewHolderClass viewHolderClass1 = new ViewHolderClass(view_meds);
-        return viewHolderClass1;
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View view = inflater.inflate(R.layout.lista_meds, parent, false);
+        return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        ViewHolderClass viewHolderClass =(ViewHolderClass)holder;
-        viewHolderClass.textView.setText(DataPets.meds[position]);
-    /*viewHolderClass.itemView.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Toast.makeText(context, "Wybrano zwierzaka", Toast.LENGTH_SHORT).show();
-        }
-    }); */
-
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        holder.leki_title.setText(String.valueOf(meds.get(position)));
+        holder.leki_title_dodatkowe_informacje.setText(String.valueOf(dodatkowe_informacje.get(position)));
     }
 
     @Override
     public int getItemCount() {
-        return arrayListMeds.size();
+        return meds.size();
     }
 
-    public class ViewHolderClass extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textView;
+        TextView leki_title, leki_title_dodatkowe_informacje;
 
-        public ViewHolderClass(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.leki_title);
-
+            leki_title = itemView.findViewById(R.id.leki_title);
+            leki_title_dodatkowe_informacje = itemView.findViewById(R.id.leki_title_dodatkowe_informacje);
         }
     }
 }

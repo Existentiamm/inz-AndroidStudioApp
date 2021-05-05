@@ -9,57 +9,51 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.DataPets;
 import com.example.myapplication.R;
 
 import java.util.ArrayList;
 
-public class ZabiegiAdapter extends RecyclerView.Adapter {
-    Context context;
-    ArrayList arrayListTreatments;
+public class ZabiegiAdapter extends RecyclerView.Adapter<ZabiegiAdapter.MyViewHolder> {
+
+    private Context context;
+    private ArrayList treatments, dodatkowe_informacje;
 
 
-    public ZabiegiAdapter(Context context, ArrayList arrayListTreatments){
-        this.arrayListTreatments = arrayListTreatments;
+    public ZabiegiAdapter(Context context, ArrayList treatments, ArrayList dodatkowe_informacje) {
+        this.context = context;
+        this.treatments = treatments;
+        this.dodatkowe_informacje = dodatkowe_informacje;
     }
-
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        View view_treatment = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_treatments, parent, false);
-        ViewHolderClass viewHolderClass1 = new ViewHolderClass(view_treatment);
-        return viewHolderClass1;
+    public ZabiegiAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View view = inflater.inflate(R.layout.lista_treatments, parent, false);
+        return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-    ViewHolderClass viewHolderClass =(ViewHolderClass)holder;
-    viewHolderClass.textView.setText(DataPets.treatment[position]);
-    /*viewHolderClass.itemView.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Toast.makeText(context, "Wybrano zwierzaka", Toast.LENGTH_SHORT).show();
-
-        }
-    }); */
-
+    public void onBindViewHolder(@NonNull ZabiegiAdapter.MyViewHolder holder, int position) {
+        holder.zabiegi_title.setText(String.valueOf(treatments.get(position)));
+        holder.zabiegi_title_dodatkowe_informacje.setText(String.valueOf(dodatkowe_informacje.get(position)));
     }
+
+
 
     @Override
     public int getItemCount() {
-        return arrayListTreatments.size();
+        return treatments.size();
     }
 
-    public class ViewHolderClass extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textView;
+        TextView zabiegi_title, zabiegi_title_dodatkowe_informacje;
 
-        public ViewHolderClass(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.zabiegi_title);
-
+            zabiegi_title = itemView.findViewById(R.id.zabiegi_title);
+            zabiegi_title_dodatkowe_informacje = itemView.findViewById(R.id.zabiegi_title_dodatkowe_informacje);
         }
     }
 }
