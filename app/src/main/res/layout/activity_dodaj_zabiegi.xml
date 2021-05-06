@@ -32,7 +32,7 @@
                 android:text="@string/zabiegi_title"
                 android:hint="Zabieg"/>
 
-            <EditText
+            <AutoCompleteTextView
                 android:id="@+id/dodaj_zabiegi_edit_text"
                 style="@style/AddingAnimalTextView"
                 android:layout_width="match_parent"

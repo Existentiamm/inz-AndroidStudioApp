@@ -9,5 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="background_nav">#48104B</color>
     <color name="second_background">#B6A7B5</color>
+    <color name="third_backgroud">#E77F50</color>
+    <color name="keybord">#C04B55</color>
 
 </resources>

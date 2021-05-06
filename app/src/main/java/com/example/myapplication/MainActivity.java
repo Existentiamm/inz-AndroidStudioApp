@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        createFragments();
         openDatabase();
+        createFragments();
         handlingSpinner();
         handlingFAB();
         handlingNavigationDrawer();
@@ -187,9 +187,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-    public void saveDate(View view) {
-        Toast.makeText(getApplicationContext(), "ma zapisywać date", Toast.LENGTH_SHORT).show();
-    }
 
     public void addMeds(View view) {
         addMeds = (Button) findViewById(R.id.button_dodaj_do_listy_leki);

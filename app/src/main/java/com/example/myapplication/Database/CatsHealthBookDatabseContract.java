@@ -11,6 +11,7 @@ public final class CatsHealthBookDatabseContract {
     public static final class SpisZwierzatEntry  implements BaseColumns {
         public static final String TABLE_NAME = "spis_zwierzat";
         public static final String COLUMN_ID_KOTA = "id_kota"; //zamiast tego jest nasze globalne _ID
+        public static final String COLUMN_IMIE_KOTA = "imie_kota";
         public static final String COLUMN_NAZWA_ZABIEGU = "nazwa_zabiegu";
         public static final String COLUMN_NAZWA_LEKU = "nazwa_leku";
         public static final String COLUMN_NAZWA_CHOROBY = "nazwa_choroby";
@@ -23,6 +24,7 @@ public final class CatsHealthBookDatabseContract {
         public static final String SQL_CREATE_TABLE =
                 "CREATE TABLE " + TABLE_NAME + " (" +
                         _ID + " INTEGER PRIMARY KEY, " +
+                        COLUMN_IMIE_KOTA + " TEXT NOT NULL UNIQUE, " +
                         COLUMN_NAZWA_ZABIEGU + " TEXT, " +
                         COLUMN_NAZWA_LEKU + " TEXT, " +
                         COLUMN_NAZWA_CHOROBY + " TEXT, " +

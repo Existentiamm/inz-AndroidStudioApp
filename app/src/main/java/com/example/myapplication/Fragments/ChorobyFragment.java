@@ -14,8 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.Adapters.ChorobyAdapter;
-import com.example.myapplication.Adapters.LekiAdapter;
-import com.example.myapplication.DataPets;
 import com.example.myapplication.Database.CatsHeathBookOpenHelper;
 import com.example.myapplication.R;
 

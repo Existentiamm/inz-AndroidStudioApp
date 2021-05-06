@@ -30,13 +30,10 @@ public class KalendarzView extends AppCompatActivity {
             data_extra.setText(date);
         }
 
-        zapisz_dane_kalendarz.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                CatsHeathBookOpenHelper myDB = new CatsHeathBookOpenHelper(KalendarzView.this);
-                myDB.addDate(data_extra.getText().toString().trim(),
-                        data_details.getText().toString().trim());
-            }
+        zapisz_dane_kalendarz.setOnClickListener(v -> {
+            CatsHeathBookOpenHelper myDB = new CatsHeathBookOpenHelper(KalendarzView.this);
+            myDB.addDate(data_extra.getText().toString().trim(),
+                    data_details.getText().toString().trim());
         });
     }
 

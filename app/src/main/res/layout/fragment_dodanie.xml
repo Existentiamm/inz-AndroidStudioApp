@@ -23,15 +23,15 @@
                 android:layout_height="wrap_content"
                 android:text="@string/imie_panel_kota" />
 
-            <EditText
+            <AutoCompleteTextView
                 android:id="@+id/imie_edit_text"
-                style="@style/AddingAnimalTextView"
+                style="@style/AddingAnimalAutoCompleteTextView"
                 android:layout_width="300dp"
-
                 android:layout_height="wrap_content"
+                android:completionThreshold="1"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="@string/imie_edit_text" />
+                android:hint="imię zwierzaka"
+                android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/wiek_panel_kota"
@@ -40,14 +40,14 @@
                 android:layout_height="wrap_content"
                 android:text="@string/wiek_panel_kota" />
 
-            <EditText
+            <AutoCompleteTextView
                 android:id="@+id/wiek_edit_text"
-                style="@style/AddingAnimalTextView"
+                style="@style/AddingAnimalAutoCompleteTextView"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="@string/wiek_edit_text" />
+                android:hint="rok urodzenia zwierzaka" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -59,6 +59,7 @@
                     style="@style/AddingAnimalTextView"
                     android:layout_width="169dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
                     android:text="Zapisanie ważnej daty" />
 
                 <Button
@@ -67,18 +68,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:text="@string/pokaz_Kalendarz"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
                     android:textColor="@color/white"></Button>
             </LinearLayout>
 
 
-            <EditText
+            <AutoCompleteTextView
                 android:id="@+id/data_edit_text"
-                style="@style/AddingAnimalTextView"
+                style="@style/AddingAnimalAutoCompleteTextView"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="@string/wiek_edit_text" />
+                android:hint="ważna data do zapisania" />
 
             <TextView
                 android:id="@+id/choroby_panel_kota"
@@ -87,14 +90,14 @@
                 android:layout_height="wrap_content"
                 android:text="@string/choroby_panel_kota" />
 
-            <EditText
+            <AutoCompleteTextView
                 android:id="@+id/choroby_edit_text"
-                style="@style/AddingAnimalTextView"
+                style="@style/AddingAnimalAutoCompleteTextView"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="@string/choroby_edit_text" />
+                android:hint="choroba zwierzaka" />
 
             <TextView
                 android:id="@+id/leki_panel_kota"
@@ -103,14 +106,14 @@
                 android:layout_height="wrap_content"
                 android:text="@string/leki_panel_kota" />
 
-            <EditText
+            <AutoCompleteTextView
                 android:id="@+id/leki_edit_text"
-                style="@style/AddingAnimalTextView"
+                style="@style/AddingAnimalAutoCompleteTextView"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="@string/leki_edit_text" />
+                android:hint="leki zwierzaka" />
 
             <TextView
                 android:id="@+id/zabiegi_panel_kota"
@@ -119,21 +122,22 @@
                 android:layout_height="wrap_content"
                 android:text="@string/zabiegi_panel_kota" />
 
-            <EditText
+            <AutoCompleteTextView
                 android:id="@+id/zabiegi_edit_text"
-                style="@style/AddingAnimalTextView"
+                style="@style/AddingAnimalAutoCompleteTextView"
                 android:layout_width="300dp"
 
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="@string/zabiegi_edit_text" />
+                android:hint="zabiegi zwierzaka" />
 
             <Button
                 android:id="@+id/zapisz_dane"
-                style="@style/AddingAnimalTextView"
+                style="@style/AddingAnimalAutoCompleteTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/zapisz"
                 android:textColor="@color/white" />

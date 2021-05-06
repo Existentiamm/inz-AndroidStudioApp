@@ -31,7 +31,7 @@
                 android:gravity="center_horizontal"
                 android:text="@string/choroby_title" />
 
-            <EditText
+            <AutoCompleteTextView
                 android:id="@+id/dodaj_choroby_edit_text"
                 style="@style/AddingAnimalTextView"
                 android:layout_width="match_parent"

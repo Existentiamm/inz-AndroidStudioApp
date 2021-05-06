@@ -12,16 +12,16 @@
     <!-- nie chcemy margin, bo "odetnie to nasze nav_header od całości-->
 
 
-    <ImageView
+    <!--<ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher_round" />
+        android:src="@mipmap/ic_launcher_round" />-->
 
     <TextView
         android:id="@string/imie_zwierzaka_navigation_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp"
+        style="@style/TextView"
         android:text="@string/imie_zwierzaka_navigation_bar"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 </androidx.appcompat.widget.LinearLayoutCompat>

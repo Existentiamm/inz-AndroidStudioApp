@@ -41,6 +41,7 @@ dependencies {
     implementation "androidx.cardview:cardview:1.0.0"
     //custom Library to Speed Dial
     implementation 'io.github.yavski:fab-speed-dial:1.0.6'
+    implementation 'androidx.room:room-runtime:2.2.5'
 
     //testowanie
     testImplementation 'junit:junit:4.+'
@@ -49,6 +50,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     androidTestImplementation 'androidx.test:core:1.2.0'
     androidTestImplementation 'androidx.test:rules:1.2.0'
+    annotationProcessor 'androidx.room:room-compiler:2.2.5'
 
 
 }
