@@ -23,13 +23,22 @@ public class KalendarzView extends AppCompatActivity {
         data_extra = findViewById(R.id.data_extra);
         data_details = findViewById(R.id.data_details);
         zapisz_dane_kalendarz = findViewById(R.id.zapisz_dane_kalendarz);
+
+        getIntentData();
+        SaveDateInCalendar();
+
+    }
+
+    private void getIntentData() {
         String date = getIntent().getStringExtra("date");
 
         if(date!= null) {
 
             data_extra.setText(date);
         }
+    }
 
+    private void SaveDateInCalendar() {
         zapisz_dane_kalendarz.setOnClickListener(v -> {
             CatsHeathBookOpenHelper myDB = new CatsHeathBookOpenHelper(KalendarzView.this);
             myDB.addDate(data_extra.getText().toString().trim(),

@@ -23,20 +23,21 @@ public class ZabiegiFragment extends Fragment {
     RecyclerView recyclerView;
     ZabiegiAdapter zabiegiAdapter;
     CatsHeathBookOpenHelper myDB;
-    ArrayList<String> nazwaZabiegu, dodatkoweInformacje;
+    ArrayList<String> id_zabiegu, nazwaZabiegu, dodatkoweInformacje;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_zabiegi, container, false);
 
         myDB = new CatsHeathBookOpenHelper(getActivity());
+        id_zabiegu = new ArrayList<>();
         nazwaZabiegu = new ArrayList<>();
         dodatkoweInformacje = new ArrayList<>();
         recyclerView = view.findViewById(R.id.recyclewViewTreatments);
 
         StoreDataInArrays();
 
-        zabiegiAdapter = new ZabiegiAdapter(getContext(), nazwaZabiegu, dodatkoweInformacje);
+        zabiegiAdapter = new ZabiegiAdapter(getContext(),id_zabiegu, nazwaZabiegu, dodatkoweInformacje);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(zabiegiAdapter);
@@ -56,8 +57,9 @@ public class ZabiegiFragment extends Fragment {
                 Toast.makeText(getActivity(), "No data", Toast.LENGTH_SHORT).show();
             } else {
                 while (cursor.moveToNext()) {
-                    nazwaZabiegu.add(cursor.getString(0));
-                    dodatkoweInformacje.add(cursor.getString(1));
+                    id_zabiegu.add(cursor.getString(0));
+                    nazwaZabiegu.add(cursor.getString(1));
+                    dodatkoweInformacje.add(cursor.getString(2));
                 }
             }
     }

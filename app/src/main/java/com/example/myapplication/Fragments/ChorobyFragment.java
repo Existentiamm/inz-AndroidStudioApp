@@ -23,7 +23,7 @@ public class ChorobyFragment extends Fragment {
     RecyclerView recyclerView;
     ChorobyAdapter chorobyAdapter;
     CatsHeathBookOpenHelper myDB;
-    ArrayList<String> nazwaChoroby, dodatkoweInformacje;
+    ArrayList<String> id_choroby, nazwaChoroby, dodatkoweInformacje;
 
     @Nullable
     @Override
@@ -31,12 +31,13 @@ public class ChorobyFragment extends Fragment {
        View view = inflater.inflate(R.layout.fragment_choroby, container, false);
 
         myDB = new CatsHeathBookOpenHelper(getActivity());
+        id_choroby = new ArrayList<>();
         nazwaChoroby = new ArrayList<>();
         dodatkoweInformacje = new ArrayList<>();
         recyclerView = view.findViewById(R.id.recyclewViewDiseases);
 
         StoreDataInArrays();
-        chorobyAdapter = new ChorobyAdapter(getContext(), nazwaChoroby, dodatkoweInformacje);
+        chorobyAdapter = new ChorobyAdapter(getContext(),id_choroby, nazwaChoroby, dodatkoweInformacje);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(chorobyAdapter);
@@ -56,8 +57,9 @@ public class ChorobyFragment extends Fragment {
             Toast.makeText(getActivity(), "No data", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor.moveToNext()) {
-                nazwaChoroby.add(cursor.getString(0));
-                dodatkoweInformacje.add(cursor.getString(1));
+                id_choroby.add(cursor.getString(0));
+                nazwaChoroby.add(cursor.getString(1));
+                dodatkoweInformacje.add(cursor.getString(2));
             }
         }
     }

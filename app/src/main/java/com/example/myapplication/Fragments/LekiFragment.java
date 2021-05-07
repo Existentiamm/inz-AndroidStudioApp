@@ -25,7 +25,7 @@ public class LekiFragment extends Fragment {
     private RecyclerView recyclerView;
     private LekiAdapter lekiAdapter;
     private CatsHeathBookOpenHelper myDB;
-    private ArrayList<String> nazwaLeku, dodatkoweInformacje;
+    private ArrayList<String> id_leku,  nazwaLeku, dodatkoweInformacje;
     @Nullable
     @Override
 
@@ -33,13 +33,14 @@ public class LekiFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_leki, container, false);
 
         myDB = new CatsHeathBookOpenHelper(getActivity());
+        id_leku = new ArrayList<>();
         nazwaLeku = new ArrayList<>();
         dodatkoweInformacje = new ArrayList<>();
         recyclerView = view.findViewById(R.id.recyclewViewMeds);
 
         StoreDataInArrays();
 
-        lekiAdapter = new LekiAdapter(getContext(), nazwaLeku, dodatkoweInformacje);
+        lekiAdapter = new LekiAdapter(getContext(),id_leku, nazwaLeku, dodatkoweInformacje);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(lekiAdapter);
@@ -60,8 +61,9 @@ public class LekiFragment extends Fragment {
             Toast.makeText(getActivity(), "No data", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor.moveToNext()) {
-                nazwaLeku.add(cursor.getString(0));
-                dodatkoweInformacje.add(cursor.getString(1));
+                id_leku.add(cursor.getString(0));
+                nazwaLeku.add(cursor.getString(1));
+                dodatkoweInformacje.add(cursor.getString(2));
             }
         }
     }

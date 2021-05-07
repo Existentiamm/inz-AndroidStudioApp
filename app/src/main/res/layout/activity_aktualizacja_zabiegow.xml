@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:id="@+id/zabiegi_update_layout">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            >
+
+
+
+            <TextView
+                android:id="@+id/zabiegi_title"
+                style="@style/TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp"
+                android:gravity="center_horizontal"
+                android:text="@string/zabiegi_title"
+                android:hint="Zabieg"/>
+
+            <AutoCompleteTextView
+                android:id="@+id/edytuj_zabiegi_edit_text"
+                style="@style/AddingAnimalTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="zabiegi"
+                android:layout_marginLeft="0dp"/>
+
+            <EditText
+                android:id="@+id/edytuj_zabiegi_dodatkowe_informacje_edit_text"
+                style="@style/AddingAnimalTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:hint="dodatkowe_informacje"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/edytuj_dane_zabiegi_button"
+                style="@style/AddingAnimalTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/edytuj"
+                android:textColor="@color/white"
+                android:layout_marginLeft="0dp"/>
+
+
+        </LinearLayout>
+
+
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</RelativeLayout>

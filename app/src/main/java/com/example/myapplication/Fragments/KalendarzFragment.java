@@ -38,18 +38,15 @@ public class KalendarzFragment extends Fragment {
         //nie można też użyc getView() po onCreateView(). Nie można tego użyć w onCreate() albo onCreateView()!
         CalendarView calendarView= (CalendarView) getView().findViewById(R.id.calendarView);
 
-        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+        calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> {
 
-                String date = year+"/"+month+"/"+dayOfMonth;
-                //w fragments nie pobiera się nazwa_fragments.this, tylko najlepiej getActivity()
-                Intent intent = new Intent (getActivity(), KalendarzView.class);
+            String date = year+"/"+month+"/"+dayOfMonth;
+            //w fragments nie pobiera się nazwa_fragments.this, tylko najlepiej getActivity()
+            Intent intent = new Intent (getActivity(), KalendarzView.class);
 
-                intent.putExtra("date", date);
+            intent.putExtra("date", date);
 
-                startActivity(intent);
-            }
+            startActivity(intent);
         });
     }
 }

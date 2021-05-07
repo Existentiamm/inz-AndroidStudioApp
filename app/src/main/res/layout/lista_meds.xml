@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:padding="10dp"
+    android:id="@+id/choroby_static_layout">
 
     <androidx.cardview.widget.CardView
         style="@style/myCardView"
@@ -16,16 +17,27 @@
             android:layout_height="wrap_content"
             android:padding="5dp">
 
+
+            <TextView
+                android:id="@+id/id_leku"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textSize="40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/leki_title"
+                app:layout_constraintHorizontal_bias="0.2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/leki_title"
                 style="@style/Tittle_bar"
                 android:text="@string/leki_title"
-
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/leki_title_dodatkowe_informacje"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.033" />
+                app:layout_constraintStart_toEndOf="@+id/id_leku"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/leki_title_dodatkowe_informacje"

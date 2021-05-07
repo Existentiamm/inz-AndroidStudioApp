@@ -47,36 +47,39 @@ public final class CatsHealthBookDatabseContract {
 
     }
 
-    public static final class SpisZabiegowEntry{
+    public static final class SpisZabiegowEntry implements BaseColumns{
         public static final String TABLE_NAME = "spis_zabiegow";
         public static final String COLUMN_NAZWA_ZABIEGU = "nazwa_zabiegu";
         public static final String COLUMN_DODATKOWE_INFORMACJE = "dodatkowe_informacje";
 
         public static final String SQL_CREATE_TABLE =
                 "CREATE TABLE " + TABLE_NAME + " (" +
-                        COLUMN_NAZWA_ZABIEGU + " TEXT PRIMARY KEY, " +
+                        _ID + " INTEGER PRIMARY KEY, " +
+                        COLUMN_NAZWA_ZABIEGU + " TEXT NOT NULL UNIQUE, " +
                         COLUMN_DODATKOWE_INFORMACJE + " TEXT NOT NULL) ";
     }
 
-    public static final class SpisLekowEntry{
+    public static final class SpisLekowEntry implements BaseColumns{
         public static final String TABLE_NAME = "spis_lekow";
         public static final String COLUMN_NAZWA_LEKU = "nazwa_leku";
         public static final String COLUMN_DODATKOWE_INFORMACJE = "dodatkowe_informacje";
 
         public static final String SQL_CREATE_TABLE =
                 "CREATE TABLE " + TABLE_NAME + " (" +
-                        COLUMN_NAZWA_LEKU + " TEXT PRIMARY KEY, " +
+                        _ID + " INTEGER PRIMARY KEY, " +
+                        COLUMN_NAZWA_LEKU + " TEXT NOT NULL UNIQUE, " +
                         COLUMN_DODATKOWE_INFORMACJE + " TEXT NOT NULL) ";
     }
 
-    public static final class SpisChorobEntry{
+    public static final class SpisChorobEntry implements BaseColumns{
         public static final String TABLE_NAME = "spis_chorob";
         public static final String COLUMN_NAZWA_CHOROBY = "nazwa_choroby";
         public static final String COLUMN_DODATKOWE_INFORMACJE = "dodatkowe_informacje";
 
         public static final String SQL_CREATE_TABLE =
                 "CREATE TABLE " + TABLE_NAME + " (" +
-                        COLUMN_NAZWA_CHOROBY + " TEXT PRIMARY KEY, " +
+                        _ID + " INTEGER PRIMARY KEY, " +
+                        COLUMN_NAZWA_CHOROBY + " TEXT NOT NULL UNIQUE, " +
                         COLUMN_DODATKOWE_INFORMACJE + " TEXT NOT NULL) ";
     }
 

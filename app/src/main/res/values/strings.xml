@@ -24,9 +24,12 @@
     <string name="zabiegi_edit_text"></string>
 
 
-    <!-- kalendarz -->
+    <!-- buttony sterujące -->
     <string name="zapisz">zapisz</string>
     <string name="cofnij">cofnij</string>
+    <string name="edytuj">edytuj</string>
+
+    <!-- kalendarz -->
     <string name="kalendarz_title">KALENDARZ</string>
     <string name="pokaz_Kalendarz">kalendarz</string>
     <!--choroby -->

@@ -77,7 +77,6 @@ public class CatsHeathBookOpenHelper extends SQLiteOpenHelper {
         }
     }
 
-    ;
 
     public void addDisease(String nazwa_choroby, String dodatkowe_informacje) {
         saveToDatabase();
@@ -212,4 +211,21 @@ public class CatsHeathBookOpenHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public void updateDisease(String row_id, String nazwa_choroby, String dodatkowe_informacje){
+        saveToDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_NAZWA_CHOROBY, nazwa_choroby);
+        cv.put(CatsHealthBookDatabseContract.SpisChorobEntry.COLUMN_DODATKOWE_INFORMACJE, dodatkowe_informacje);
+
+       long result = db.update(CatsHealthBookDatabseContract.SpisChorobEntry.TABLE_NAME, cv, "_id=?", new String[]{row_id});
+
+       if(result == 1){
+           Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+       }
+       else{
+           Toast.makeText(context, "Update", Toast.LENGTH_SHORT).show();
+       }
+
+
+    }
 }
