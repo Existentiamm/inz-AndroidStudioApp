@@ -1,7 +1,14 @@
 package com.example.myapplication;
 
+<<<<<<< HEAD
 import androidx.appcompat.app.AppCompatActivity;
 
+=======
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.DialogInterface;
+>>>>>>> 5200a40 ( usuwanie z bazy danych)
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
@@ -14,7 +21,11 @@ import com.example.myapplication.Database.CatsHeathBookOpenHelper;
 public class AktualizacjaLekow extends AppCompatActivity {
     AutoCompleteTextView edytuj_leki_edit_text;
     EditText edytuj_leki_dodatkowe_informacje_edit_text;
+<<<<<<< HEAD
     Button edytuj_dane_leki_button;
+=======
+    Button edytuj_dane_leki_button,button_usun_z_listy_lekow ;
+>>>>>>> 5200a40 ( usuwanie z bazy danych)
     String _id, meds, dodatkowe_informacje;
     CatsHeathBookOpenHelper myDB;
 
@@ -26,12 +37,49 @@ public class AktualizacjaLekow extends AppCompatActivity {
         edytuj_leki_edit_text = findViewById(R.id.edytuj_leki_edit_text);
         edytuj_leki_dodatkowe_informacje_edit_text = findViewById(R.id.edytuj_leki_dodatkowe_informacje_edit_text);
         edytuj_dane_leki_button = findViewById(R.id.edytuj_dane_leki_button);
+<<<<<<< HEAD
 
 
         getIntentData();
         UpdateMed();
 
     }
+=======
+        button_usun_z_listy_lekow = findViewById(R.id.button_usun_z_listy_lekow);
+
+
+        getIntentData();
+        deleteMed();
+        UpdateMed();
+
+    }
+    private void deleteMed() {
+        button_usun_z_listy_lekow.setOnClickListener(v->{
+            confirmDialog();
+        });
+    }
+
+    private void confirmDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Usunąć " + meds +"? ");
+        builder.setMessage("Na pewno usunąć " + meds +"? ");
+        builder.setPositiveButton("Tak", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                myDB = new CatsHeathBookOpenHelper(AktualizacjaLekow.this);
+                myDB.deleteMed(_id);
+            }
+        });
+
+        builder.setNegativeButton("Nie", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.create().show();
+    }
+>>>>>>> 5200a40 ( usuwanie z bazy danych)
 
     private void UpdateMed() {
 

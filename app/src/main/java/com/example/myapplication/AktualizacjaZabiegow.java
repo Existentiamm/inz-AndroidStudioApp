@@ -1,5 +1,9 @@
 package com.example.myapplication;
 
+<<<<<<< HEAD
+=======
+import androidx.appcompat.app.AlertDialog;
+>>>>>>> 5200a40 ( usuwanie z bazy danych)
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -13,7 +17,11 @@ import com.example.myapplication.Database.CatsHeathBookOpenHelper;
 
 public class AktualizacjaZabiegow extends AppCompatActivity {
 
+<<<<<<< HEAD
     Button edytuj_dane_zabiegi_button;
+=======
+    Button edytuj_dane_zabiegi_button, button_usun_z_listy_zabiegow;
+>>>>>>> 5200a40 ( usuwanie z bazy danych)
     AutoCompleteTextView edytuj_zabiegi_edit_text;
     EditText edytuj_zabiegi_dodatkowe_informacje_edit_text;
     String _id, treatment, dodatkowe_informacje;
@@ -27,12 +35,42 @@ public class AktualizacjaZabiegow extends AppCompatActivity {
         edytuj_zabiegi_edit_text = findViewById(R.id.edytuj_zabiegi_edit_text);
         edytuj_zabiegi_dodatkowe_informacje_edit_text = findViewById(R.id.edytuj_zabiegi_dodatkowe_informacje_edit_text);
         edytuj_dane_zabiegi_button = findViewById(R.id.edytuj_dane_zabiegi_button);
+<<<<<<< HEAD
 
 
         UpdateTreatment();
         getIntentData();
     }
 
+=======
+        button_usun_z_listy_zabiegow = findViewById(R.id.button_usun_z_listy_zabiegow);
+
+        UpdateTreatment();
+        deleteTreatment();
+        getIntentData();
+    }
+
+    private void deleteTreatment() {
+        button_usun_z_listy_zabiegow.setOnClickListener(v -> {
+            confirmDialog();
+        });
+    }
+
+    private void confirmDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Usunąć " + treatment+ "?");
+        builder.setMessage("Jesteś pewien, że chcesz usunąć " + treatment + "?");
+        builder.setPositiveButton("Tak", (dialog, which) -> {
+            myDB = new CatsHeathBookOpenHelper(AktualizacjaZabiegow.this);
+            myDB.deleteTreatment(_id);
+        });
+        builder.setNegativeButton("Nie", (dialog, which) -> {
+
+        });
+        builder.create().show();
+    }
+
+>>>>>>> 5200a40 ( usuwanie z bazy danych)
     private void getIntentData() {
         if ( getIntent().hasExtra("id_zabiegu") && getIntent().hasExtra("treatment") && getIntent().hasExtra("dodatkowe_informacje")) {
             _id = getIntent().getStringExtra("id_zabiegu");

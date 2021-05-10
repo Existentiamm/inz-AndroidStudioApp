@@ -263,4 +263,41 @@ public class CatsHeathBookOpenHelper extends SQLiteOpenHelper {
             Toast.makeText(context, "Update", Toast.LENGTH_SHORT).show();
         }
     }
+<<<<<<< HEAD
+=======
+
+
+    public void deleteDisease(String id) {
+        saveToDatabase();
+        long result = db.delete(CatsHealthBookDatabseContract.SpisChorobEntry.TABLE_NAME,"_id = ?", new String[]{id} );
+        if(result == -1){
+            Toast.makeText(context, "Not done", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void deleteMed(String id){
+        saveToDatabase();
+        long result  = db.delete(CatsHealthBookDatabseContract.SpisLekowEntry.TABLE_NAME, "_id = ?", new String[]{id});
+        if(result == -1){
+            Toast.makeText(context, "Not done", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void deleteTreatment(String id){
+        saveToDatabase();
+        long result = db.delete(CatsHealthBookDatabseContract.SpisZabiegowEntry.TABLE_NAME, "_id = ?", new String[]{id});
+        if(result == -1){
+            Toast.makeText(context, "Not done", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+        }
+    }
+>>>>>>> 5200a40 ( usuwanie z bazy danych)
 }

@@ -1,7 +1,14 @@
 package com.example.myapplication;
 
+<<<<<<< HEAD
 import androidx.appcompat.app.AppCompatActivity;
 
+=======
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.DialogInterface;
+>>>>>>> 5200a40 ( usuwanie z bazy danych)
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
@@ -29,13 +36,53 @@ public class AktualizacjaChorob extends AppCompatActivity {
         edytuj_choroby_edit_text = findViewById(R.id.edytuj_choroby_edit_text);
         edytuj_choroby_dodatkowe_informacje_edit_text = findViewById(R.id.edytuj_choroby_dodatkowe_informacje_edit_text);
         edytuj_dane_choroby_button = findViewById(R.id.edytuj_dane_choroby_button);
+<<<<<<< HEAD
 
 
         getIntentData();
+=======
+        button_usun_z_listy_chorob = findViewById(R.id.button_usun_z_listy_chorob);
+
+        getIntentData();
+        deleteDisease();
+>>>>>>> 5200a40 ( usuwanie z bazy danych)
         UpdateDisease();
 
     }
 
+<<<<<<< HEAD
+=======
+    private void confirmDialog(){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Usunąć " + diseases+ "?" );
+        builder.setMessage("Jesteś pewien, że chcesz usunąć " + diseases + "?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                myDB = new CatsHeathBookOpenHelper(AktualizacjaChorob.this);
+                myDB.deleteDisease(_id);
+                finish();
+            }
+        });
+        builder.setNegativeButton("Nope", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.create().show();
+
+    }
+
+    private void deleteDisease() {
+        button_usun_z_listy_chorob.setOnClickListener(v -> {
+            confirmDialog();
+
+        });
+    }
+
+>>>>>>> 5200a40 ( usuwanie z bazy danych)
     private void getIntentData() {
 
         if (getIntent().hasExtra("id_choroby") && (getIntent().hasExtra("diseases") && getIntent().hasExtra("dodatkowe_informacje"))) {
