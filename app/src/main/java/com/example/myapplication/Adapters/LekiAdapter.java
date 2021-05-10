@@ -48,6 +48,7 @@ public class LekiAdapter extends RecyclerView.Adapter<LekiAdapter.MyViewHolder> 
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, AktualizacjaLekow.class);
+                intent.putExtra("id_leku", String.valueOf(id_leku.get(position)));
                 intent.putExtra("med", String.valueOf(meds.get(position)));
                 intent.putExtra("dodatkowe_informacje", String.valueOf(dodatkowe_informacje.get(position)));
                 context.startActivity(intent);

@@ -42,15 +42,12 @@ public class ZabiegiAdapter extends RecyclerView.Adapter<ZabiegiAdapter.MyViewHo
         holder.id_zabiegu.setText(String.valueOf(id_zabiegu.get(position)));
         holder.zabiegi_title.setText(String.valueOf(treatments.get(position)));
         holder.zabiegi_title_dodatkowe_informacje.setText(String.valueOf(dodatkowe_informacje.get(position)));
-        holder.zabiegi_static_layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, AktualizacjaZabiegow.class);
-                intent.putExtra("id_zabiegu", String.valueOf(id_zabiegu.get(position)));
-                intent.putExtra("treatment", String.valueOf(treatments.get(position)));
-                intent.putExtra("dodatkowe_informacje", String.valueOf(dodatkowe_informacje.get(position)));
-                context.startActivity(intent);
-            }
+        holder.zabiegi_static_layout.setOnClickListener(v -> {
+            Intent intent = new Intent(context, AktualizacjaZabiegow.class);
+            intent.putExtra("id_zabiegu", String.valueOf(id_zabiegu.get(position)));
+            intent.putExtra("treatment", String.valueOf(treatments.get(position)));
+            intent.putExtra("dodatkowe_informacje", String.valueOf(dodatkowe_informacje.get(position)));
+            context.startActivity(intent);
         });
     }
 

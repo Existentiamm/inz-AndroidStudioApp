@@ -18,7 +18,7 @@ import static com.example.myapplication.Database.CatsHealthBookDatabseContract.S
 public class CatsHeathBookOpenHelper extends SQLiteOpenHelper {
     private SQLiteDatabase db;
     private Context context;
-    private static final String DATABSE_NAME = "CatsHealthBook.db"; //nazwa aszego pliku, w którym będzie baza.
+    private static final String DATABASE_NAME = "CatsHealthBook.db"; //nazwa aszego pliku, w którym będzie baza.
     private static final int DATABASE_VERSION = 1;
     protected Cursor cursor;
 
@@ -27,7 +27,7 @@ public class CatsHeathBookOpenHelper extends SQLiteOpenHelper {
     }
 
     public CatsHeathBookOpenHelper(@Nullable Context context) {
-        super(context, DATABSE_NAME, null, DATABASE_VERSION);
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }
 
@@ -214,18 +214,53 @@ public class CatsHeathBookOpenHelper extends SQLiteOpenHelper {
     public void updateDisease(String row_id, String nazwa_choroby, String dodatkowe_informacje){
         saveToDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(COLUMN_NAZWA_CHOROBY, nazwa_choroby);
+        cv.put(CatsHealthBookDatabseContract.SpisChorobEntry.COLUMN_NAZWA_CHOROBY, nazwa_choroby);
         cv.put(CatsHealthBookDatabseContract.SpisChorobEntry.COLUMN_DODATKOWE_INFORMACJE, dodatkowe_informacje);
 
-       long result = db.update(CatsHealthBookDatabseContract.SpisChorobEntry.TABLE_NAME, cv, "_id=?", new String[]{row_id});
+       long result = db.update(CatsHealthBookDatabseContract.SpisChorobEntry.TABLE_NAME, cv, "_id = ?", new String[]{row_id});
 
-       if(result == 1){
-           Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+       if(result == -1){
+           Toast.makeText(context, "NIE DZIAŁA FUNKCJAAAAA", Toast.LENGTH_SHORT).show();
        }
        else{
            Toast.makeText(context, "Update", Toast.LENGTH_SHORT).show();
        }
 
 
+    }
+
+    public void updateMed(String row_id, String nazwa_leku, String dodatkowe_informacje) {
+
+        saveToDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_NAZWA_LEKU, nazwa_leku);
+        cv.put(CatsHealthBookDatabseContract.SpisLekowEntry.COLUMN_DODATKOWE_INFORMACJE, dodatkowe_informacje);
+
+        long result = db.update(CatsHealthBookDatabseContract.SpisLekowEntry.TABLE_NAME, cv, "_id = ?", new String[]{row_id});
+
+        if(result == -1){
+            Toast.makeText(context, "NIE DZIAŁA FUNKCJAAAAA", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(context, "Update", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+
+    public void updateTreatment(String row_id, String nazwa_zabiegu, String dodatkowe_informacje) {
+        saveToDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_NAZWA_ZABIEGU, nazwa_zabiegu);
+        cv.put(CatsHealthBookDatabseContract.SpisZabiegowEntry.COLUMN_DODATKOWE_INFORMACJE, dodatkowe_informacje);
+
+        long result = db.update(CatsHealthBookDatabseContract.SpisZabiegowEntry.TABLE_NAME, cv, "_id = ?", new String[]{row_id});
+
+        if(result == -1){
+            Toast.makeText(context, "NIE DZIAŁA FUNKCJAAAAA", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(context, "Update", Toast.LENGTH_SHORT).show();
+        }
     }
 }
