@@ -27,7 +27,7 @@
 
             <TextView
                 android:id="@+id/leki_title"
-                style="@style/Tittle_bar"
+                style="@style/Tittle_CardView"
                 android:text="@string/leki_title"
                 app:layout_constraintBottom_toTopOf="@+id/leki_title_dodatkowe_informacje"
                 app:layout_constraintEnd_toEndOf="parent"

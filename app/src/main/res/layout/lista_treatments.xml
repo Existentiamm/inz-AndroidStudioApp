@@ -27,7 +27,7 @@
 
             <TextView
                 android:id="@+id/zabiegi_title"
-                style="@style/Tittle_bar"
+                style="@style/Tittle_CardView"
                 android:text="@string/zabiegi_title"
                 app:layout_constraintBottom_toTopOf="@+id/zabiegi_title_dodatkowe_informacje"
                 app:layout_constraintEnd_toEndOf="parent"

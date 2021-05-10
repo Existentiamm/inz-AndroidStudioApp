@@ -10,8 +10,9 @@
 
     <TextView
         android:id="@+id/kalendarz_title"
-        style="@style/TextView"
-        android:text="@string/kalendarz_title"/>
+        style="@style/TextViewTiitleFragments"
+        android:text="@string/kalendarz_title"
+        android:layout_marginBottom="0dp"/>
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="400dp"

@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="TextView">
+    <style name="TextViewTiitleFragments">
         <item name="android:textColor">#D3C8E4</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:gravity">center</item>
+        <item name="android:gravity">center_horizontal</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textSize">40dp</item>
         <item name="android:padding">10dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">30dp</item>
+        <item name="android:layout_marginBottom">40dp</item>
+    </style>
+
+    <style name="NavHeader">
+        <item name ="android:layout_width">match_parent</item>
+        <item name ="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">40dp</item>
     </style>
 
     <style name="TextViewDrawerMenu">
@@ -18,17 +27,39 @@
         <item name="android:fontFamily">sans-serif</item>
     </style>
 
+<style name="TextViewDodanieFragment">
+    <item name="android:textColor">@color/background_nav</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:fontFamily">sans-serif</item>
+    <item name="android:textSize">14dp</item>
+    <item name ="android:layout_width">match_parent</item>
+    <item name ="android:layout_height">wrap_content</item>
+    <item name="android:layout_marginTop">25dp</item>
+    <item name="android:layout_marginLeft">30dp</item>
+</style>
 
-    <style name="AddingAnimalTextView">
+    <style name="TextViewFragments">
         <item name="android:textColor">@color/background_nav</item>
         <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">sans-serif</item>
-        <item name="android:layout_marginLeft">30dp</item>
         <item name="android:layout_marginTop">25dp</item>
+        <item name="android:layout_marginLeft">0dp</item>
         <item name="android:textSize">14dp</item>
-
+        <item name ="android:layout_width">match_parent</item>
+        <item name ="android:layout_height">wrap_content</item>
     </style>
 
+    <style name="ButtonySterujace">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+
+    </style>
 
 
     <style name="AddingAnimalAutoCompleteTextView">
@@ -42,16 +73,16 @@
     </style>
 
 
-    <style name="Tittle_bar">
+
+    <style name="Tittle_CardView">
         <item name="android:textColor">@color/background_nav</item>
         <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">20dp</item>
-        <item name ="android:layout_marginTop">4dp</item>
-        <item name ="android:layout_marginBottom">2dp</item>
-
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">2dp</item>
     </style>
 
     <style name="Numbers">

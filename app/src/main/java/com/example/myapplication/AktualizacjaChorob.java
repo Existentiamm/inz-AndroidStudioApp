@@ -16,7 +16,7 @@ import org.w3c.dom.Text;
 public class AktualizacjaChorob extends AppCompatActivity {
     AutoCompleteTextView edytuj_choroby_edit_text;
     TextView id_choroby, edytuj_choroby_dodatkowe_informacje_edit_text;
-    Button edytuj_dane_choroby_button;
+    Button edytuj_dane_choroby_button, button_usun_z_listy_chorob;
     String _id, diseases, dodatkowe_informacje;
 
     CatsHeathBookOpenHelper myDB;

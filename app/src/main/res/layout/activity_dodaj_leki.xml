@@ -21,41 +21,23 @@
 
             <TextView
                 android:id="@+id/leki_title"
-                style="@style/TextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="40dp"
-                android:gravity="center_horizontal"
+                style="@style/TextViewTiitleFragments"
                 android:text="@string/leki_title" />
 
             <AutoCompleteTextView
                 android:id="@+id/dodaj_leki_edit_text"
-                style="@style/AddingAnimalTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="0dp"
-                android:hint="Lek"
-                android:inputType="textPersonName" />
+                style="@style/TextViewFragments"
+                android:hint="Lek" />
 
             <EditText
                 android:id="@+id/dodaj_leki_dodatkowe_informacje_edit_text"
-                style="@style/AddingAnimalTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="0dp"
-                android:hint="dodatkowe_informacje"
-                android:inputType="textPersonName" />
+                style="@style/TextViewFragments"
+                android:hint="dodatkowe_informacje" />
 
             <Button
                 android:id="@+id/zapisz_dane_leki"
-                style="@style/AddingAnimalTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="0dp"
-                android:gravity="center"
-                android:text="@string/zapisz"
-                android:textColor="@color/white" />
+                style="@style/ButtonySterujace"
+                android:text="@string/zapisz" />
 
 
         </LinearLayout>

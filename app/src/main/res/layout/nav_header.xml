@@ -19,9 +19,7 @@
 
     <TextView
         android:id="@string/imie_zwierzaka_navigation_bar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/TextView"
+        style="@style/NavHeader"
         android:text="@string/imie_zwierzaka_navigation_bar"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 </androidx.appcompat.widget.LinearLayoutCompat>

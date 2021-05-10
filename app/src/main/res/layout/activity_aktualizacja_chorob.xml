@@ -1,63 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/choroby_update_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:id="@+id/choroby_update_layout">
+    android:background="@color/white">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:scrollbars="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:gravity="center_horizontal"
-            >
-
-
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/choroby_title"
-                style="@style/TextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="40dp"
-                android:gravity="center_horizontal"
+                style="@style/TextViewTiitleFragments"
                 android:text="@string/choroby_title" />
 
             <AutoCompleteTextView
                 android:id="@+id/edytuj_choroby_edit_text"
-                style="@style/AddingAnimalTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:layout_marginLeft="0dp"
-                android:hint="Choroba"/>
+                style="@style/TextViewFragments"
+                android:hint="Choroba" />
 
             <EditText
                 android:id="@+id/edytuj_choroby_dodatkowe_informacje_edit_text"
-                style="@style/AddingAnimalTextView"
+                style="@style/TextViewFragments"
+                android:hint="dodatkowe_informacje"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="0dp"
-                android:hint="dodatkowe_informacje"
-                android:inputType="textPersonName" />
+                android:layout_alignParentBottom="true"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/edytuj_dane_choroby_button"
-                style="@style/AddingAnimalTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/edytuj"
-                android:textColor="@color/white"
-                android:layout_marginLeft="0dp"/>
+                <Button
+                    android:id="@+id/button_usun_z_listy_chorob"
+                    style="@style/ButtonySterujace"
+                    android:text="@string/usun"/>
 
+                <Button
+                    android:id="@+id/edytuj_dane_choroby_button"
+                    style="@style/ButtonySterujace"
+                    android:text="@string/edytuj"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
         </LinearLayout>
 

@@ -1,5 +1,6 @@
 package com.example.myapplication.Fragments;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -43,13 +44,13 @@ public class ChorobyFragment extends Fragment {
         recyclerView.setAdapter(chorobyAdapter);
 
         return view;
+
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
     }
+
 
     private void StoreDataInArrays() {
         Cursor cursor = myDB.readAllDataDiseases();

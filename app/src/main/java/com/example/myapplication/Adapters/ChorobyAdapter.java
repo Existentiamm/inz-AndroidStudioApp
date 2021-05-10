@@ -1,5 +1,6 @@
 package com.example.myapplication.Adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -21,10 +22,19 @@ import java.util.ArrayList;
 
 public class ChorobyAdapter extends RecyclerView.Adapter<ChorobyAdapter.MyViewHolder> {
     private Context context;
-
+    private Activity activity; //do odświeżania Activity
     private ArrayList id_choroby, diseases, dodatkowe_informacje;
 
+    public ChorobyAdapter(Activity activity, Context context, ArrayList id_choroby, ArrayList diseases, ArrayList dodatkowe_informacje) {
+        this.activity = activity;
+        this.context = context;
+        this.id_choroby = id_choroby;
+        this.diseases = diseases;
+        this.dodatkowe_informacje = dodatkowe_informacje;
+    }
+
     public ChorobyAdapter(Context context, ArrayList id_choroby, ArrayList diseases, ArrayList dodatkowe_informacje) {
+        this.activity = activity;
         this.context = context;
         this.id_choroby = id_choroby;
         this.diseases = diseases;
@@ -51,7 +61,7 @@ public class ChorobyAdapter extends RecyclerView.Adapter<ChorobyAdapter.MyViewHo
                 intent.putExtra("id_choroby", String.valueOf(id_choroby.get(position)));
                 intent.putExtra("diseases", String.valueOf(diseases.get(position)));
                 intent.putExtra("dodatkowe_informacje", String.valueOf(dodatkowe_informacje.get(position)));
-                context.startActivity(intent);
+               context.startActivity(intent);
             }
         });
 

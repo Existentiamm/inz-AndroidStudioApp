@@ -18,9 +18,7 @@
 
             <TextView
                 android:id="@+id/imie_panel_kota"
-                style="@style/AddingAnimalTextView"
-                android:layout_width="70dp"
-                android:layout_height="wrap_content"
+                style="@style/TextViewDodanieFragment"
                 android:text="@string/imie_panel_kota" />
 
             <AutoCompleteTextView
@@ -35,9 +33,7 @@
 
             <TextView
                 android:id="@+id/wiek_panel_kota"
-                style="@style/AddingAnimalTextView"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
+                style="@style/TextViewDodanieFragment"
                 android:text="@string/wiek_panel_kota" />
 
             <AutoCompleteTextView
@@ -56,15 +52,14 @@
 
                 <TextView
                     android:id="@+id/data_panel_kota"
-                    style="@style/AddingAnimalTextView"
+                    style="@style/TextViewDodanieFragment"
                     android:layout_width="169dp"
-                    android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
                     android:text="Zapisanie ważnej daty" />
 
                 <Button
                     android:id="@+id/pokaz_kalendarz"
-                    style="@style/AddingAnimalTextView"
+                    style="@style/TextViewDodanieFragment"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:text="@string/pokaz_Kalendarz"
@@ -85,9 +80,7 @@
 
             <TextView
                 android:id="@+id/choroby_panel_kota"
-                style="@style/AddingAnimalTextView"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
+                style="@style/TextViewDodanieFragment"
                 android:text="@string/choroby_panel_kota" />
 
             <AutoCompleteTextView
@@ -101,9 +94,7 @@
 
             <TextView
                 android:id="@+id/leki_panel_kota"
-                style="@style/AddingAnimalTextView"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
+                style="@style/TextViewDodanieFragment"
                 android:text="@string/leki_panel_kota" />
 
             <AutoCompleteTextView
@@ -117,9 +108,7 @@
 
             <TextView
                 android:id="@+id/zabiegi_panel_kota"
-                style="@style/AddingAnimalTextView"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
+                style="@style/TextViewDodanieFragment"
                 android:text="@string/zabiegi_panel_kota" />
 
             <AutoCompleteTextView
@@ -134,13 +123,10 @@
 
             <Button
                 android:id="@+id/zapisz_dane"
-                style="@style/AddingAnimalAutoCompleteTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="0dp"
+                style="@style/ButtonySterujace"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/zapisz"
-                android:textColor="@color/white" />
+                />
 
 
         </LinearLayout>

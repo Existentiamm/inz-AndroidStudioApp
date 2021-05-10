@@ -9,61 +9,40 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:scrollbars="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:gravity="center_horizontal"
-            >
-
+            android:orientation="vertical">
 
 
             <TextView
                 android:id="@+id/zabiegi_title"
-                style="@style/TextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="40dp"
-                android:gravity="center_horizontal"
-                android:text="@string/zabiegi_title"
-                android:hint="Zabieg"/>
+                style="@style/TextViewTiitleFragments"
+                android:text="@string/zabiegi_title" />
 
             <AutoCompleteTextView
                 android:id="@+id/dodaj_zabiegi_edit_text"
-                style="@style/AddingAnimalTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
+                style="@style/TextViewFragments"
                 android:hint="zabiegi"
-                android:layout_marginLeft="0dp"/>
+                />
 
             <EditText
                 android:id="@+id/dodaj_zabiegi_dodatkowe_informacje_edit_text"
-                style="@style/AddingAnimalTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="0dp"
+                style="@style/TextViewFragments"
                 android:hint="dodatkowe_informacje"
-                android:inputType="textPersonName" />
+               />
 
             <Button
                 android:id="@+id/zapisz_dane_zabiegi"
-                style="@style/AddingAnimalTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/zapisz"
-                android:textColor="@color/white"
-                android:layout_marginLeft="0dp"/>
+                style="@style/ButtonySterujace"
+                android:text="@string/zapisz" />
 
 
         </LinearLayout>
-
-
 
 
     </androidx.core.widget.NestedScrollView>

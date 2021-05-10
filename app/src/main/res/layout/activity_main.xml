@@ -59,7 +59,7 @@
 
             <TextView
                 android:id="@+id/wybranie_kota"
-                style="@style/TextView"
+                style="@style/TextViewTiitleFragments"
                 android:text="@string/activity_main_info"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
