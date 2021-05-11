@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name= ".KalendarzView"
+            android:label="Dodaj datę"
+            android:parentActivityName=".MainActivity"/>
+        <activity
             android:name=".AktualizacjaZabiegow"
             android:label="Aktualizacja zabiegu"
             android:parentActivityName=".DodajZabiegi" />
@@ -21,7 +25,6 @@
             android:name=".AktualizacjaChorob"
             android:label="Aktualizacja choroby"
             android:parentActivityName=".DodajLeki" />
-        <activity android:name=".KalendarzView" />
         <activity
             android:name=".DodajZabiegi"
             android:label="Dodanie zabiegu"

@@ -41,11 +41,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     final private String TAG = getClass().getSimpleName();
     private DrawerLayout drawerLayout;
     private Toolbar toolbar;
-    private Spinner mySpinner;
     private FabSpeedDial fabSpeedDial;
     private Button addMeds, addDiseases, addTreatments;
     CatsHeathBookOpenHelper myDB;
-    private ArrayList<String> cats;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,16 +52,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         myDB = new CatsHeathBookOpenHelper(MainActivity.this);
-        cats = new ArrayList<>();
 
+        openDatabase();
         createFragments();
-        handlingSpinner();
         handlingFAB();
         handlingNavigationDrawer();
 
 
     }
 
+    private void openDatabase() {
+        //BAZA DANYCH
+        myDB = new CatsHeathBookOpenHelper(this);
+        myDB.getReadableDatabase();//wywołanie bazy danych do stworzenia
+    }
 
 
     private void handlingNavigationDrawer() {
@@ -111,41 +113,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
     }
-
-    private void handlingSpinner() {
-        //dodanie spinera w actionBar
-        mySpinner = findViewById(R.id.spinner);
-        Cursor cursor = myDB.readFromDatabaseOnlyImieKota();
-        if (cursor.getCount() == 0) {
-            Toast.makeText(MainActivity.this, "No data", Toast.LENGTH_SHORT).show();
-        } else {
-            while (cursor.moveToNext()) {
-                cats.add(cursor.getString(0));
-            }
-        }
-
-        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(MainActivity.this, R.layout.custom_spinner_item, cats);
-        myAdapter.setDropDownViewResource(R.layout.custrom_spinner_item_dropdown);
-        mySpinner.setAdapter(myAdapter);
-
-        mySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-                                                @Override
-                                                public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                                                    Toast.makeText(MainActivity.this,
-                                                            mySpinner.getSelectedItem().toString(),
-                                                            Toast.LENGTH_SHORT)
-                                                            .show();
-                                                }
-
-                                                @Override
-                                                public void onNothingSelected(AdapterView<?> adapterView) {
-
-                                                }
-                                            }
-        );
-    }
-
 
 
     @Override

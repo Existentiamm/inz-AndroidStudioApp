@@ -20,6 +20,6 @@
     <TextView
         android:id="@string/imie_zwierzaka_navigation_bar"
         style="@style/NavHeader"
-        android:text="@string/imie_zwierzaka_navigation_bar"
+        android:text="MENU"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 </androidx.appcompat.widget.LinearLayoutCompat>

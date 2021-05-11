@@ -18,7 +18,7 @@
         <item name ="android:layout_width">match_parent</item>
         <item name ="android:layout_height">wrap_content</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:textSize">40dp</item>
+        <item name="android:textSize">30dp</item>
     </style>
 
     <style name="TextViewDrawerMenu">
@@ -47,6 +47,9 @@
         <item name="android:textSize">14dp</item>
         <item name ="android:layout_width">match_parent</item>
         <item name ="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:completionThreshold">1</item>
+
     </style>
 
     <style name="ButtonySterujace">
@@ -75,7 +78,7 @@
 
 
     <style name="Tittle_CardView">
-        <item name="android:textColor">@color/background_nav</item>
+        <item name="android:textColor">@color/third_backgroud</item>
         <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:layout_width">wrap_content</item>
@@ -85,13 +88,21 @@
         <item name="android:layout_marginBottom">2dp</item>
     </style>
 
+    <style name="DodatkoweInformacje">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
     <style name="Numbers">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:text">1</item>
         <item name="android:textSize">40dp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/third_backgroud</item>
+        <item name="android:textColor">@color/background_nav</item>
     </style>
 
     <style name="myCardView" parent="CardView">

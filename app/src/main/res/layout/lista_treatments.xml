@@ -16,7 +16,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="12dp">
-
+            <TextView
+                android:id="@+id/imie_kota_zabiegi"
+                style="@style/Tittle_CardView"
+                android:text="imie kota"
+                app:layout_constraintBottom_toTopOf="@+id/zabiegi_title"
+                app:layout_constraintEnd_toEndOf="@+id/zabiegi_title"
+                app:layout_constraintStart_toStartOf="@+id/zabiegi_title" />
 
             <TextView
                 android:id="@+id/id_zabiegu"
@@ -28,6 +34,7 @@
             <TextView
                 android:id="@+id/zabiegi_title"
                 style="@style/Tittle_CardView"
+                android:textSize="17dp"
                 android:text="@string/zabiegi_title"
                 app:layout_constraintBottom_toTopOf="@+id/zabiegi_title_dodatkowe_informacje"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -36,9 +43,7 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/zabiegi_title_dodatkowe_informacje"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
+               style="@style/DodatkoweInformacje"
                 android:text="@string/dodatkowe_informacje"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

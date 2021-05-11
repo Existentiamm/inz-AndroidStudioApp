@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import java.util.List;
 
 import static com.example.myapplication.Database.CatsHealthBookDatabseContract.KalendarzEntry.COLUMN_DATA;
+import static com.example.myapplication.Database.CatsHealthBookDatabseContract.SpisChorobEntry.COLUMN_IMIE_KOTA;
 import static com.example.myapplication.Database.CatsHealthBookDatabseContract.SpisChorobEntry.COLUMN_NAZWA_CHOROBY;
 import static com.example.myapplication.Database.CatsHealthBookDatabseContract.SpisLekowEntry.COLUMN_DODATKOWE_INFORMACJE;
 import static com.example.myapplication.Database.CatsHealthBookDatabseContract.SpisLekowEntry.COLUMN_NAZWA_LEKU;
@@ -64,10 +65,10 @@ public class CatsHeathBookOpenHelper extends SQLiteOpenHelper {
     }
 
 
-    public void addMed(String nazwa_leku, String dodatkowe_informacje) {
+    public void addMed(String imie_kota, String nazwa_leku, String dodatkowe_informacje) {
         saveToDatabase();
         ContentValues cv = new ContentValues();
-
+        cv.put(CatsHealthBookDatabseContract.SpisLekowEntry.COLUMN_IMIE_KOTA, imie_kota);
         cv.put(COLUMN_NAZWA_LEKU, nazwa_leku);
         cv.put(COLUMN_DODATKOWE_INFORMACJE, dodatkowe_informacje);
 
@@ -80,10 +81,10 @@ public class CatsHeathBookOpenHelper extends SQLiteOpenHelper {
     }
 
 
-    public void addDisease(String nazwa_choroby, String dodatkowe_informacje) {
+    public void addDisease(String imie_kota, String nazwa_choroby, String dodatkowe_informacje) {
         saveToDatabase();
         ContentValues cv = new ContentValues();
-
+        cv.put(COLUMN_IMIE_KOTA, imie_kota);
         cv.put(COLUMN_NAZWA_CHOROBY, nazwa_choroby);
         cv.put(CatsHealthBookDatabseContract.SpisChorobEntry.COLUMN_DODATKOWE_INFORMACJE, dodatkowe_informacje);
         long result = db.insert(CatsHealthBookDatabseContract.SpisChorobEntry.TABLE_NAME, null, cv);
@@ -95,10 +96,10 @@ public class CatsHeathBookOpenHelper extends SQLiteOpenHelper {
     }
 
 
-    public void addTreatment(String nazwa_zabiegu, String dodatkowe_informacje) {
+    public void addTreatment(String imie_kota, String nazwa_zabiegu, String dodatkowe_informacje) {
         saveToDatabase();
         ContentValues cv = new ContentValues();
-
+        cv.put(CatsHealthBookDatabseContract.SpisZabiegowEntry.COLUMN_IMIE_KOTA, imie_kota);
         cv.put(COLUMN_NAZWA_ZABIEGU, nazwa_zabiegu);
         cv.put(CatsHealthBookDatabseContract.SpisZabiegowEntry.COLUMN_DODATKOWE_INFORMACJE, dodatkowe_informacje);
         long result = db.insert(CatsHealthBookDatabseContract.SpisZabiegowEntry.TABLE_NAME, null, cv);
@@ -109,14 +110,10 @@ public class CatsHeathBookOpenHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void addCat(String imie_kota, String nazwa_zabiegu, String nazwa_leku, String nazwa_choroby, String data, String rok_urodzenia) {
+    public void addCat(String imie_kota, String rok_urodzenia) {
         saveToDatabase();
         ContentValues cv = new ContentValues();
         cv.put(CatsHealthBookDatabseContract.SpisZwierzatEntry.COLUMN_IMIE_KOTA, imie_kota);
-        cv.put(CatsHealthBookDatabseContract.SpisZwierzatEntry.COLUMN_NAZWA_ZABIEGU, nazwa_zabiegu);
-        cv.put(CatsHealthBookDatabseContract.SpisZwierzatEntry.COLUMN_NAZWA_LEKU, nazwa_leku);
-        cv.put(CatsHealthBookDatabseContract.SpisZwierzatEntry.COLUMN_NAZWA_CHOROBY, nazwa_choroby);
-        cv.put(CatsHealthBookDatabseContract.SpisZwierzatEntry.COLUMN_DATA, data);
         cv.put(CatsHealthBookDatabseContract.SpisZwierzatEntry.COLUMN_ROK_URODZENIA, rok_urodzenia);
         long result = db.insert(CatsHealthBookDatabseContract.SpisZwierzatEntry.TABLE_NAME, null, cv);
         if (result == -1) {
@@ -126,10 +123,10 @@ public class CatsHeathBookOpenHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void addDate(String data, String dodatkowe_informacje) {
+    public void addDate(String imie_kota, String data, String dodatkowe_informacje) {
         saveToDatabase();
         ContentValues cv = new ContentValues();
-
+        cv.put(CatsHealthBookDatabseContract.KalendarzEntry.COLUMN_IMIE_KOTA, imie_kota);
         cv.put(COLUMN_DATA, data);
         cv.put(CatsHealthBookDatabseContract.KalendarzEntry.COLUMN_DODATKOWE_INFORMACJE, dodatkowe_informacje);
         long result = db.insert(CatsHealthBookDatabseContract.KalendarzEntry.TABLE_NAME, null, cv);
@@ -195,7 +192,7 @@ public class CatsHeathBookOpenHelper extends SQLiteOpenHelper {
         readFromDatabase();
         String query = "SELECT " + CatsHealthBookDatabseContract.SpisZabiegowEntry.COLUMN_NAZWA_ZABIEGU + " FROM " + CatsHealthBookDatabseContract.SpisZabiegowEntry.TABLE_NAME;
         if (db != null) //jezeli baza danych nie jest pusta to wykonaj query
-             {
+        {
             cursor = db.rawQuery(query, null);
         }
         cursor.moveToFirst();
@@ -203,10 +200,10 @@ public class CatsHeathBookOpenHelper extends SQLiteOpenHelper {
         //kurson przechowuje nasze query
     }
 
-    public Cursor readFromDatabaseOnlyImieKota(){
+    public Cursor readFromDatabaseOnlyImieKota() {
         readFromDatabase();
         String query = "SELECT " + CatsHealthBookDatabseContract.SpisZwierzatEntry.COLUMN_IMIE_KOTA + " FROM " + CatsHealthBookDatabseContract.SpisZwierzatEntry.TABLE_NAME;
-        if(db != null){
+        if (db != null) {
             cursor = db.rawQuery(query, null);
         }
         cursor.moveToFirst();
@@ -214,89 +211,95 @@ public class CatsHeathBookOpenHelper extends SQLiteOpenHelper {
     }
 
 
-
-    public void updateDisease(String row_id, String nazwa_choroby, String dodatkowe_informacje){
+    public void updateDisease(String imie_kota, String row_id, String nazwa_choroby, String dodatkowe_informacje) {
         saveToDatabase();
         ContentValues cv = new ContentValues();
+        cv.put(COLUMN_IMIE_KOTA, imie_kota);
         cv.put(CatsHealthBookDatabseContract.SpisChorobEntry.COLUMN_NAZWA_CHOROBY, nazwa_choroby);
         cv.put(CatsHealthBookDatabseContract.SpisChorobEntry.COLUMN_DODATKOWE_INFORMACJE, dodatkowe_informacje);
 
-       long result = db.update(CatsHealthBookDatabseContract.SpisChorobEntry.TABLE_NAME, cv, "_id = ?", new String[]{row_id});
+        long result = db.update(CatsHealthBookDatabseContract.SpisChorobEntry.TABLE_NAME, cv, "_id = ?", new String[]{row_id});
 
-       if(result == -1){
-           Toast.makeText(context, "NIE DZIAŁA FUNKCJAAAAA", Toast.LENGTH_SHORT).show();
-       }
-       else{
-           Toast.makeText(context, "Update", Toast.LENGTH_SHORT).show();
-       }
+        if (result == -1) {
+            Toast.makeText(context, "NIE DZIAŁA FUNKCJAAAAA", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Update", Toast.LENGTH_SHORT).show();
+        }
 
 
     }
 
-    public void updateMed(String row_id, String nazwa_leku, String dodatkowe_informacje) {
+    public void updateMed(String imie_kota , String row_id, String nazwa_leku, String dodatkowe_informacje) {
 
         saveToDatabase();
         ContentValues cv = new ContentValues();
+        cv.put(CatsHealthBookDatabseContract.SpisLekowEntry.COLUMN_IMIE_KOTA, imie_kota);
         cv.put(COLUMN_NAZWA_LEKU, nazwa_leku);
         cv.put(CatsHealthBookDatabseContract.SpisLekowEntry.COLUMN_DODATKOWE_INFORMACJE, dodatkowe_informacje);
 
         long result = db.update(CatsHealthBookDatabseContract.SpisLekowEntry.TABLE_NAME, cv, "_id = ?", new String[]{row_id});
 
-        if(result == -1){
+        if (result == -1) {
             Toast.makeText(context, "NIE DZIAŁA FUNKCJAAAAA", Toast.LENGTH_SHORT).show();
-        }
-        else{
+        } else {
             Toast.makeText(context, "Update", Toast.LENGTH_SHORT).show();
         }
 
     }
 
 
-    public void updateTreatment(String row_id, String nazwa_zabiegu, String dodatkowe_informacje) {
+    public void updateTreatment(String imie_kota, String row_id, String nazwa_zabiegu, String dodatkowe_informacje) {
         saveToDatabase();
         ContentValues cv = new ContentValues();
+        cv.put(CatsHealthBookDatabseContract.SpisZabiegowEntry.COLUMN_IMIE_KOTA, imie_kota);
         cv.put(COLUMN_NAZWA_ZABIEGU, nazwa_zabiegu);
         cv.put(CatsHealthBookDatabseContract.SpisZabiegowEntry.COLUMN_DODATKOWE_INFORMACJE, dodatkowe_informacje);
 
         long result = db.update(CatsHealthBookDatabseContract.SpisZabiegowEntry.TABLE_NAME, cv, "_id = ?", new String[]{row_id});
 
-        if(result == -1){
+        if (result == -1) {
             Toast.makeText(context, "NIE DZIAŁA FUNKCJAAAAA", Toast.LENGTH_SHORT).show();
-        }
-        else{
+        } else {
             Toast.makeText(context, "Update", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void deleteDateFromCalendar(String id) {
+        saveToDatabase();
+        long result = db.delete(CatsHealthBookDatabseContract.KalendarzEntry.TABLE_NAME, "_id = ?", new String[]{id});
+        if (result == -1) {
+            Toast.makeText(context, "Not done", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
         }
     }
 
     public void deleteDisease(String id) {
         saveToDatabase();
-        long result = db.delete(CatsHealthBookDatabseContract.SpisChorobEntry.TABLE_NAME,"_id = ?", new String[]{id} );
-        if(result == -1){
+        long result = db.delete(CatsHealthBookDatabseContract.SpisChorobEntry.TABLE_NAME, "_id = ?", new String[]{id});
+        if (result == -1) {
             Toast.makeText(context, "Not done", Toast.LENGTH_SHORT).show();
-        }
-        else{
+        } else {
             Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void deleteMed(String id){
+    public void deleteMed(String id) {
         saveToDatabase();
-        long result  = db.delete(CatsHealthBookDatabseContract.SpisLekowEntry.TABLE_NAME, "_id = ?", new String[]{id});
-        if(result == -1){
+        long result = db.delete(CatsHealthBookDatabseContract.SpisLekowEntry.TABLE_NAME, "_id = ?", new String[]{id});
+        if (result == -1) {
             Toast.makeText(context, "Not done", Toast.LENGTH_SHORT).show();
-        }
-        else{
+        } else {
             Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void deleteTreatment(String id){
+    public void deleteTreatment(String id) {
         saveToDatabase();
         long result = db.delete(CatsHealthBookDatabseContract.SpisZabiegowEntry.TABLE_NAME, "_id = ?", new String[]{id});
-        if(result == -1){
+        if (result == -1) {
             Toast.makeText(context, "Not done", Toast.LENGTH_SHORT).show();
-        }
-        else{
+        } else {
             Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
         }
     }

@@ -4,8 +4,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,17 +16,19 @@ import android.widget.Toast;
 import com.example.myapplication.Database.CatsHeathBookOpenHelper;
 
 public class AktualizacjaLekow extends AppCompatActivity {
-    AutoCompleteTextView edytuj_leki_edit_text;
+    AutoCompleteTextView edytuj_leki_edit_text, edytuj_leki_imie_kota_edit_text;
     EditText edytuj_leki_dodatkowe_informacje_edit_text;
     Button edytuj_dane_leki_button, button_usun_z_listy_lekow;
-    String _id, meds, dodatkowe_informacje;
+    String _id, imie_kota,  meds, dodatkowe_informacje;
     CatsHeathBookOpenHelper myDB;
+    String[] leki_lista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aktualizacja_lekow);
 
+        edytuj_leki_imie_kota_edit_text = findViewById(R.id.edytuj_leki_imie_kota_edit_text);
         edytuj_leki_edit_text = findViewById(R.id.edytuj_leki_edit_text);
         edytuj_leki_dodatkowe_informacje_edit_text = findViewById(R.id.edytuj_leki_dodatkowe_informacje_edit_text);
         edytuj_dane_leki_button = findViewById(R.id.edytuj_dane_leki_button);
@@ -64,25 +68,53 @@ public class AktualizacjaLekow extends AppCompatActivity {
         builder.create().show();
     }
     private void UpdateMed() {
+        pokazImieKotaAutoComplete();
+        pokazDaneAutoCompleteLeki();
 
        edytuj_dane_leki_button.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
                myDB = new CatsHeathBookOpenHelper(AktualizacjaLekow.this);
+               imie_kota = edytuj_leki_imie_kota_edit_text.getText().toString().trim();
                meds = edytuj_leki_edit_text.getText().toString().trim();
                dodatkowe_informacje = edytuj_leki_dodatkowe_informacje_edit_text.getText().toString().trim();
-               myDB.updateMed(_id, meds, dodatkowe_informacje);
+               myDB.updateMed(imie_kota, _id, meds, dodatkowe_informacje);
            }
        });
     }
 
+    private void pokazDaneAutoCompleteLeki() {
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1,
+                Data.meds);
+        edytuj_leki_edit_text.setAdapter(adapter);
+    }
+
+    private void pokazImieKotaAutoComplete() {
+        myDB = new CatsHeathBookOpenHelper(AktualizacjaLekow.this);
+        myDB.readFromDatabaseOnlyImieKota();
+        Cursor cursor = myDB.getCursor(); //pobranie kursora z Helpera
+        leki_lista = new String[0];
+        leki_lista = new String[cursor.getCount()];
+
+        int i = 0;
+        do {
+            leki_lista[i] = cursor.getString(0);
+            i++;
+        } while (cursor.moveToNext());
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(AktualizacjaLekow.this,android.R.layout.simple_dropdown_item_1line, leki_lista);
+        edytuj_leki_imie_kota_edit_text.setAdapter(adapter);
+    }
+
     private void getIntentData() {
-        if (getIntent().hasExtra("id_leku") && getIntent().hasExtra("med") && (getIntent().hasExtra("dodatkowe_informacje"))) {
+        if (getIntent().hasExtra("imie_kota_leki") && getIntent().hasExtra("id_leku") && getIntent().hasExtra("med") && (getIntent().hasExtra("dodatkowe_informacje"))) {
+            imie_kota = getIntent().getStringExtra("imie_kota_leki");
             _id = getIntent().getStringExtra("id_leku");
             meds = getIntent().getStringExtra("med");
             dodatkowe_informacje = getIntent().getStringExtra("dodatkowe_informacje");
 
-            if ((_id != null) && ((meds != null) && dodatkowe_informacje != null)) {
+            if ((_id != null) && (imie_kota != null)  && ((meds != null) && dodatkowe_informacje != null)) {
+                edytuj_leki_imie_kota_edit_text.setText(imie_kota);
                 edytuj_leki_edit_text.setText(meds);
                 edytuj_leki_dodatkowe_informacje_edit_text.setText(dodatkowe_informacje);
 

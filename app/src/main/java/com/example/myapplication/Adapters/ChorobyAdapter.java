@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class ChorobyAdapter extends RecyclerView.Adapter<ChorobyAdapter.MyViewHolder> {
     private Context context;
     private Activity activity; //do odświeżania Activity
-    private ArrayList id_choroby, diseases, dodatkowe_informacje;
+    private ArrayList imie_kota_choroby, id_choroby, diseases, dodatkowe_informacje;
 
     public ChorobyAdapter(Activity activity, Context context, ArrayList id_choroby, ArrayList diseases, ArrayList dodatkowe_informacje) {
         this.activity = activity;
@@ -33,8 +33,8 @@ public class ChorobyAdapter extends RecyclerView.Adapter<ChorobyAdapter.MyViewHo
         this.dodatkowe_informacje = dodatkowe_informacje;
     }
 
-    public ChorobyAdapter(Context context, ArrayList id_choroby, ArrayList diseases, ArrayList dodatkowe_informacje) {
-        this.activity = activity;
+    public ChorobyAdapter(Context context, ArrayList imie_kota_choroby, ArrayList id_choroby, ArrayList diseases, ArrayList dodatkowe_informacje) {
+        this.imie_kota_choroby = imie_kota_choroby;
         this.context = context;
         this.id_choroby = id_choroby;
         this.diseases = diseases;
@@ -51,6 +51,7 @@ public class ChorobyAdapter extends RecyclerView.Adapter<ChorobyAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        holder.imie_kota_choroby.setText(String.valueOf(imie_kota_choroby.get(position)));
         holder.id_choroby.setText(String.valueOf(id_choroby.get(position)));
         holder.choroby_title.setText(String.valueOf(diseases.get(position)));
         holder.choroby_title_dodatkowe_informacje.setText(String.valueOf(dodatkowe_informacje.get(position)));
@@ -58,6 +59,7 @@ public class ChorobyAdapter extends RecyclerView.Adapter<ChorobyAdapter.MyViewHo
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, AktualizacjaChorob.class);
+                intent.putExtra("imie_kota_choroby", String.valueOf(imie_kota_choroby.get(position)));
                 intent.putExtra("id_choroby", String.valueOf(id_choroby.get(position)));
                 intent.putExtra("diseases", String.valueOf(diseases.get(position)));
                 intent.putExtra("dodatkowe_informacje", String.valueOf(dodatkowe_informacje.get(position)));
@@ -76,9 +78,11 @@ public class ChorobyAdapter extends RecyclerView.Adapter<ChorobyAdapter.MyViewHo
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         ConstraintLayout choroby_static_layout;
-        TextView id_choroby, choroby_title, choroby_title_dodatkowe_informacje;
+        TextView imie_kota_choroby, id_choroby, choroby_title, choroby_title_dodatkowe_informacje;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            imie_kota_choroby = itemView.findViewById(R.id.imie_kota_choroby);
             id_choroby= itemView.findViewById(R.id.id_choroby);
             choroby_title = itemView.findViewById(R.id.choroby_title);
             choroby_title_dodatkowe_informacje = itemView.findViewById(R.id.choroby_title_dodatkowe_informacje);

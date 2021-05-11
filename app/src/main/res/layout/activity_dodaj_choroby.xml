@@ -26,9 +26,19 @@
                 android:text="@string/choroby_title" />
 
             <AutoCompleteTextView
+                android:id="@+id/dodaj_choroby_imie_kota_edit_text"
+                style="@style/TextViewFragments"
+                android:inputType="textPersonName"
+                android:completionThreshold="1"
+                android:completionHint="Wybierz kota"
+                android:hint="imie_kota"/>
+
+            <AutoCompleteTextView
                 android:id="@+id/dodaj_choroby_edit_text"
                 style="@style/TextViewFragments"
                 android:inputType="textPersonName"
+                android:completionThreshold="1"
+                android:completionHint="Wybierz chorobę"
                 android:hint="Choroba"/>
 
             <EditText

@@ -23,6 +23,11 @@
                 android:text="@string/choroby_title" />
 
             <AutoCompleteTextView
+                android:id="@+id/edytuj_choroby_imie_kota_edit_text"
+                style="@style/TextViewFragments"
+                android:hint="Imie kota" />
+
+            <AutoCompleteTextView
                 android:id="@+id/edytuj_choroby_edit_text"
                 style="@style/TextViewFragments"
                 android:hint="Choroba" />

@@ -24,13 +24,6 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="140dp"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            />
 
         </androidx.appcompat.widget.Toolbar>
 

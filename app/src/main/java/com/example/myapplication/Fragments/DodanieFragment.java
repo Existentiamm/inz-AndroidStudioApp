@@ -41,29 +41,22 @@ public class DodanieFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
         kotyAutoComplete = getView().findViewById(R.id.imie_edit_text);
-        zabiegiAutoComplete = getView().findViewById(R.id.zabiegi_edit_text);
-        chorobyAutoComplete = getView().findViewById(R.id.choroby_edit_text);
-        lekiAutoComplete = getView().findViewById(R.id.leki_edit_text);
         imie_edit_text = getView().findViewById(R.id.imie_edit_text);
         wiek_edit_text = getView().findViewById(R.id.wiek_edit_text);
-        choroby_edit_text = getView().findViewById(R.id.choroby_edit_text);
-        data_edit_text = getView().findViewById(R.id.data_edit_text);
-        leki_edit_text = getView().findViewById(R.id.leki_edit_text);
-        zabiegi_edit_text = getView().findViewById(R.id.zabiegi_edit_text);
-        pokaz_kalendarz = getView().findViewById(R.id.pokaz_kalendarz);
         zapisz_dane = getView().findViewById(R.id.zapisz_dane);
 
 
+
         ZapiszDane();
-        PokazKalendarz();
+        //PokazKalendarz();
         pokazDaneAutoComplete();
 
     }
 
     private void pokazDaneAutoComplete() {
-        pokazZabiegiAutoComplete();
-        pokazLekiAutoComplete();
-        pokazChorobyAutoComplete();
+        //pokazZabiegiAutoComplete();
+        //pokazLekiAutoComplete();
+        //pokazChorobyAutoComplete();
         pokazImieKotaAutoComplete();
     }
 
@@ -156,10 +149,6 @@ public class DodanieFragment extends Fragment {
         zapisz_dane.setOnClickListener(v -> {
             myDB = new CatsHeathBookOpenHelper(getActivity());
             myDB.addCat(imie_edit_text.getText().toString().trim(),
-                    zabiegi_edit_text.getText().toString().trim(),
-                    leki_edit_text.getText().toString().trim(),
-                    choroby_edit_text.getText().toString().trim(),
-                    data_edit_text.getText().toString().trim(),
                     wiek_edit_text.getText().toString().trim());
         });
     }

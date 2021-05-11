@@ -20,10 +20,11 @@ import java.util.ArrayList;
 public class LekiAdapter extends RecyclerView.Adapter<LekiAdapter.MyViewHolder> {
 
     private Context context;
-    private ArrayList id_leku, meds, dodatkowe_informacje;
+    private ArrayList imie_kota_leki, id_leku, meds, dodatkowe_informacje;
 
-    public LekiAdapter(Context context, ArrayList id_leku, ArrayList meds, ArrayList dodatkowe_informacje) {
+    public LekiAdapter(Context context, ArrayList imie_kota_leki, ArrayList id_leku, ArrayList meds, ArrayList dodatkowe_informacje) {
         this.context = context;
+        this.imie_kota_leki = imie_kota_leki;
         this.id_leku = id_leku;
         this.meds = meds;
         this.dodatkowe_informacje = dodatkowe_informacje;
@@ -41,6 +42,7 @@ public class LekiAdapter extends RecyclerView.Adapter<LekiAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        holder.imie_kota_leki.setText(String.valueOf(imie_kota_leki.get(position)));
         holder.id_leku.setText(String.valueOf(id_leku.get(position)));
         holder.leki_title.setText(String.valueOf(meds.get(position)));
         holder.leki_title_dodatkowe_informacje.setText(String.valueOf(dodatkowe_informacje.get(position)));
@@ -48,6 +50,7 @@ public class LekiAdapter extends RecyclerView.Adapter<LekiAdapter.MyViewHolder> 
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, AktualizacjaLekow.class);
+                intent.putExtra("imie_kota_leki", String.valueOf(imie_kota_leki.get(position)));
                 intent.putExtra("id_leku", String.valueOf(id_leku.get(position)));
                 intent.putExtra("med", String.valueOf(meds.get(position)));
                 intent.putExtra("dodatkowe_informacje", String.valueOf(dodatkowe_informacje.get(position)));
@@ -63,11 +66,12 @@ public class LekiAdapter extends RecyclerView.Adapter<LekiAdapter.MyViewHolder> 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView id_leku, leki_title, leki_title_dodatkowe_informacje;
+        TextView imie_kota_leki, id_leku, leki_title, leki_title_dodatkowe_informacje;
         ConstraintLayout choroby_static_layout;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+            imie_kota_leki = itemView.findViewById(R.id.imie_kota_leki);
             id_leku = itemView.findViewById(R.id.id_leku);
             leki_title = itemView.findViewById(R.id.leki_title);
             leki_title_dodatkowe_informacje = itemView.findViewById(R.id.leki_title_dodatkowe_informacje);

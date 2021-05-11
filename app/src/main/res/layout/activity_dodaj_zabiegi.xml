@@ -25,6 +25,12 @@
                 android:text="@string/zabiegi_title" />
 
             <AutoCompleteTextView
+                android:id="@+id/dodaj_zabiegi_imie_kota_edit_text"
+                style="@style/TextViewFragments"
+                android:inputType="textPersonName"
+                android:hint="imie_kota"/>
+
+            <AutoCompleteTextView
                 android:id="@+id/dodaj_zabiegi_edit_text"
                 style="@style/TextViewFragments"
                 android:hint="zabiegi"
