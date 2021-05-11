@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -16,9 +17,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.myapplication.Database.CatsHealthBookDatabseContract;
 import com.example.myapplication.Database.CatsHeathBookOpenHelper;
 import com.example.myapplication.Fragments.ChorobyFragment;
 import com.example.myapplication.Fragments.DodanieFragment;
@@ -29,6 +32,9 @@ import com.google.android.material.internal.NavigationMenu;
 import com.google.android.material.navigation.NavigationView;
 import com.example.myapplication.KalendarzView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.github.yavski.fabspeeddial.FabSpeedDial;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -36,16 +42,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawerLayout;
     private Toolbar toolbar;
     private Spinner mySpinner;
-    private CatsHeathBookOpenHelper mDbOpenHelper;
     private FabSpeedDial fabSpeedDial;
     private Button addMeds, addDiseases, addTreatments;
+    CatsHeathBookOpenHelper myDB;
+    private ArrayList<String> cats;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        openDatabase();
+
+        myDB = new CatsHeathBookOpenHelper(MainActivity.this);
+        cats = new ArrayList<>();
+
         createFragments();
         handlingSpinner();
         handlingFAB();
@@ -53,6 +63,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     }
+
+
 
     private void handlingNavigationDrawer() {
 
@@ -103,8 +115,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void handlingSpinner() {
         //dodanie spinera w actionBar
         mySpinner = findViewById(R.id.spinner);
+        Cursor cursor = myDB.readFromDatabaseOnlyImieKota();
+        if (cursor.getCount() == 0) {
+            Toast.makeText(MainActivity.this, "No data", Toast.LENGTH_SHORT).show();
+        } else {
+            while (cursor.moveToNext()) {
+                cats.add(cursor.getString(0));
+            }
+        }
 
-        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(MainActivity.this, R.layout.custom_spinner_item, getResources().getStringArray(R.array.names));
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(MainActivity.this, R.layout.custom_spinner_item, cats);
         myAdapter.setDropDownViewResource(R.layout.custrom_spinner_item_dropdown);
         mySpinner.setAdapter(myAdapter);
 
@@ -126,17 +146,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         );
     }
 
-    private void openDatabase() {
-        //BAZA DANYCH
-        mDbOpenHelper = new CatsHeathBookOpenHelper(this);
-        mDbOpenHelper.getReadableDatabase();//wywołanie bazy danych do stworzenia
-    }
 
 
     @Override
     protected void onDestroy() {
         //kiedy activity wejdzie w stan Destroy zamykasz połączenie z bazą
-        mDbOpenHelper.close();
+        myDB.close();
         super.onDestroy();
     }
 
@@ -188,43 +203,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
-    public void addMeds(View view) {
+    public void showViewForAddMeds(View view) {
         addMeds = (Button) findViewById(R.id.button_dodaj_do_listy_leki);
-        addMeds.setOnClickListener(new View.OnClickListener() {
-                                       @Override
-                                       public void onClick(View v) {
-                                           Intent intent = new Intent(MainActivity.this, DodajLeki.class);
-                                           startActivity(intent);
-                                       }
-                                   }
+        addMeds.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, DodajLeki.class);
+            startActivity(intent);
+        }
 
         );
 
     }
 
-    public void AddTreatments(View view) {
+    public void showViewForAddTreatments(View view) {
         addTreatments = (Button) findViewById(R.id.button_dodaj_do_listy_zabiegi);
-        addTreatments.setOnClickListener(new View.OnClickListener() {
-                                       @Override
-                                       public void onClick(View v) {
-                                           Intent intent = new Intent(MainActivity.this, DodajZabiegi.class);
-                                           startActivity(intent);
-                                       }
-                                   }
+        addTreatments.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, DodajZabiegi.class);
+            startActivity(intent);
+        }
 
         );
 
     }
 
-    public void addDiseases(View view) {
+    public void showViewForAddDiseases(View view) {
         addDiseases = (Button) findViewById(R.id.button_dodaj_do_listy_choroby);
-        addDiseases.setOnClickListener(new View.OnClickListener() {
-                                       @Override
-                                       public void onClick(View v) {
-                                           Intent intent = new Intent(MainActivity.this, DodajChoroby.class);
-                                           startActivity(intent);
-                                       }
-                                   }
+        addDiseases.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, DodajChoroby.class);
+            startActivity(intent);
+        }
 
         );
 

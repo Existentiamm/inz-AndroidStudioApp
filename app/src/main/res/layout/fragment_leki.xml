@@ -25,7 +25,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:text="@string/dodaj"
-            android:onClick="addMeds"/>
+            android:onClick="showViewForAddMeds"/>
 
 
 </RelativeLayout>

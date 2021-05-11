@@ -23,7 +23,7 @@
             style="@style/ButtonySterujace"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:onClick="addDiseases"
+            android:onClick="showViewForAddDiseases"
             android:text="@string/dodaj"></Button>
 
 

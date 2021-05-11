@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import java.util.List;
+
 import static com.example.myapplication.Database.CatsHealthBookDatabseContract.KalendarzEntry.COLUMN_DATA;
 import static com.example.myapplication.Database.CatsHealthBookDatabseContract.SpisChorobEntry.COLUMN_NAZWA_CHOROBY;
 import static com.example.myapplication.Database.CatsHealthBookDatabseContract.SpisLekowEntry.COLUMN_DODATKOWE_INFORMACJE;
@@ -210,6 +212,8 @@ public class CatsHeathBookOpenHelper extends SQLiteOpenHelper {
         cursor.moveToFirst();
         return cursor;
     }
+
+
 
     public void updateDisease(String row_id, String nazwa_choroby, String dodatkowe_informacje){
         saveToDatabase();
