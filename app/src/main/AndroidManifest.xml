@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myapplication">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication">
+        <activity
+            android:name= ".KalendarzView"
+            android:label="Dodaj datę"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".AktualizacjaZabiegow"
+            android:label="Aktualizacja zabiegu"
+            android:parentActivityName=".DodajZabiegi" />
+        <activity
+            android:name=".AktualizacjaLekow"
+            android:label="Aktualizacja leku"
+            android:parentActivityName=".DodajLeki" />
+        <activity
+            android:name=".AktualizacjaChorob"
+            android:label="Aktualizacja choroby"
+            android:parentActivityName=".DodajLeki" />
+        <activity
+            android:name=".DodajZabiegi"
+            android:label="Dodanie zabiegu"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".DodajChoroby"
+            android:label="Dodanie choroby"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".DodajLeki"
+            android:label="Dodanie leku"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.MyApplication.NoActionBar">
+
+            <!-- używam theme NoActionBar, żeby Android nie używał native ActionBar -->
+
+        </activity>
+    </application>
+
+</manifest>

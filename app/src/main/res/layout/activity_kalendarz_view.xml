@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".KalendarzView"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/data_extra"
+        style="@style/TextViewTiitleFragments"
+        android:text="data"
+        android:layout_marginTop="70dp" />
+
+    <AutoCompleteTextView
+        android:id="@+id/dodaj_datę_imie_kota_edit_text"
+        style="@style/TextViewFragments"
+        android:inputType="textPersonName"
+        android:hint="imie_kota"/>
+
+    <EditText
+        android:id="@+id/data_details"
+        style="@style/TextViewFragments"
+        android:layout_margin="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/dodatkowe_informacje"
+        />
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/usun_dane_kalendarz"
+            style="@style/ButtonySterujace"
+            android:text="@string/usun"/>
+
+        <Button
+            android:id="@+id/zapisz_dane_kalendarz"
+            style="@style/ButtonySterujace"
+            android:text="@string/edytuj"/>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</LinearLayout>
