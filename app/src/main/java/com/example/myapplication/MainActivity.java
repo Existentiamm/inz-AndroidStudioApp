@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         openDatabase();
         createFragments();
-        handlingFAB();
+        //handlingFAB();
         handlingNavigationDrawer();
 
 
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void handlingFAB() {
-        fabSpeedDial = (FabSpeedDial) findViewById(R.id.fabSpeedDial);
+        //fabSpeedDial = (FabSpeedDial) findViewById(R.id.fabSpeedDial);
         fabSpeedDial.setMenuListener(new FabSpeedDial.MenuListener() {
             @Override
             public boolean onPrepareMenu(NavigationMenu navigationMenu) {

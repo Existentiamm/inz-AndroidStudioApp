@@ -38,18 +38,6 @@
             android:id="@+id/fragment_container">
 
 
-            <io.github.yavski.fabspeeddial.FabSpeedDial
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/fabSpeedDial"
-                android:layout_gravity="bottom|end"
-                app:fabGravity="bottom_end"
-                app:fabMenu="@menu/extra_menu"
-                app:miniFabBackgroundTint="@android:color/white"
-                app:miniFabDrawableTint="?attr/colorPrimaryDark"
-                app:miniFabTitleTextColor="?attr/colorPrimaryDark">
-            </io.github.yavski.fabspeeddial.FabSpeedDial>
-
             <TextView
                 android:id="@+id/wybranie_kota"
                 style="@style/TextViewTiitleFragments"

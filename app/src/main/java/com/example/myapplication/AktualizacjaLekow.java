@@ -98,10 +98,12 @@ public class AktualizacjaLekow extends AppCompatActivity {
         leki_lista = new String[cursor.getCount()];
 
         int i = 0;
-        do {
-            leki_lista[i] = cursor.getString(0);
-            i++;
-        } while (cursor.moveToNext());
+        if(cursor.getCount() >0 ) {
+            do {
+                leki_lista[i] = cursor.getString(0);
+                i++;
+            } while (cursor.moveToNext());
+        }
         ArrayAdapter<String> adapter = new ArrayAdapter<>(AktualizacjaLekow.this,android.R.layout.simple_dropdown_item_1line, leki_lista);
         edytuj_leki_imie_kota_edit_text.setAdapter(adapter);
     }

@@ -50,10 +50,12 @@ public class AktualizacjaChorob extends AppCompatActivity {
         choroby_lista = new String[cursor.getCount()];
 
         int i = 0;
-        do {
-            choroby_lista[i] = cursor.getString(0);
-            i++;
-        } while (cursor.moveToNext());
+        if(cursor.getCount() >0 ) {
+            do {
+                choroby_lista[i] = cursor.getString(0);
+                i++;
+            } while (cursor.moveToNext());
+        }
         ArrayAdapter<String> adapter = new ArrayAdapter<>(AktualizacjaChorob.this,android.R.layout.simple_dropdown_item_1line, choroby_lista);
         edytuj_choroby_imie_kota_edit_text.setAdapter(adapter);
     }
