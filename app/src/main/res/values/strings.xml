@@ -34,6 +34,7 @@
     <!-- kalendarz -->
     <string name="kalendarz_title">KALENDARZ</string>
     <string name="pokaz_Kalendarz">kalendarz</string>
+    <string name="data_title">data</string>
     <!--choroby -->
     <string name="choroby_title">CHOROBY</string>
     <!--leki -->

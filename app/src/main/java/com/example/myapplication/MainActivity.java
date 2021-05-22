@@ -28,6 +28,7 @@ import com.example.myapplication.Fragments.DodanieFragment;
 import com.example.myapplication.Fragments.KalendarzFragment;
 import com.example.myapplication.Fragments.LekiFragment;
 import com.example.myapplication.Fragments.ZabiegiFragment;
+import com.example.myapplication.Fragments.ZapisaneDatyFragment;
 import com.google.android.material.internal.NavigationMenu;
 import com.google.android.material.navigation.NavigationView;
 import com.example.myapplication.KalendarzView;
@@ -157,6 +158,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_choroby:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ChorobyFragment()).commit();
+                break;
+            case R.id.nav_zapisane_daty:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ZapisaneDatyFragment()).commit();
                 break;
             case R.id.nav_dodanie:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DodanieFragment()).commit();

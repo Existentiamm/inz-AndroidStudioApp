@@ -34,22 +34,13 @@ public class KalendarzView extends AppCompatActivity {
         data_extra = findViewById(R.id.data_extra);
         data_details = findViewById(R.id.data_details);
         zapisz_dane_kalendarz = findViewById(R.id.zapisz_dane_kalendarz);
-        usun_dane_kalendarz = findViewById(R.id.usun_dane_kalendarz);
 
         getIntentData();
         SaveDateInCalendar();
-        deleteDataFromCalendar();
 
     }
 
-    private void deleteDataFromCalendar() {
-        usun_dane_kalendarz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                confirmDialog();
-            }
-        });
-    }
+
 
     private void confirmDialog() {
 
@@ -82,7 +73,7 @@ public class KalendarzView extends AppCompatActivity {
         }
     }
     private void SaveDateInCalendar() {
-        //pokazImieKotaAutoComplete();
+        pokazImieKotaAutoComplete();
         zapisz_dane_kalendarz.setOnClickListener(v -> {
             CatsHeathBookOpenHelper myDB = new CatsHeathBookOpenHelper(KalendarzView.this);
             myDB.addDate(dodaj_datę_imie_kota_edit_text.getText().toString().trim(), data_extra.getText().toString().trim(),
@@ -98,10 +89,12 @@ public class KalendarzView extends AppCompatActivity {
         koty_lista = new String[cursor.getCount()];
 
         int i = 0;
-        do {
-            koty_lista[i] = cursor.getString(0);
-            i++;
-        } while (cursor.moveToNext());
+        if(cursor.getCount() > 0) {
+            do {
+                koty_lista[i] = cursor.getString(0);
+                i++;
+            } while (cursor.moveToNext());
+        }
         ArrayAdapter<String> adapter = new ArrayAdapter<>(KalendarzView.this,android.R.layout.simple_dropdown_item_1line, koty_lista);
         dodaj_datę_imie_kota_edit_text.setAdapter(adapter);
     }

@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.AktualizacjaChorob;
 import com.example.myapplication.AktualizacjaLekow;
 import com.example.myapplication.R;
 
@@ -46,7 +45,7 @@ public class LekiAdapter extends RecyclerView.Adapter<LekiAdapter.MyViewHolder> 
         holder.id_leku.setText(String.valueOf(id_leku.get(position)));
         holder.leki_title.setText(String.valueOf(meds.get(position)));
         holder.leki_title_dodatkowe_informacje.setText(String.valueOf(dodatkowe_informacje.get(position)));
-        holder.choroby_static_layout.setOnClickListener(new View.OnClickListener() {
+        holder.leki_static_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, AktualizacjaLekow.class);
@@ -67,7 +66,7 @@ public class LekiAdapter extends RecyclerView.Adapter<LekiAdapter.MyViewHolder> 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView imie_kota_leki, id_leku, leki_title, leki_title_dodatkowe_informacje;
-        ConstraintLayout choroby_static_layout;
+        ConstraintLayout leki_static_layout;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -75,7 +74,7 @@ public class LekiAdapter extends RecyclerView.Adapter<LekiAdapter.MyViewHolder> 
             id_leku = itemView.findViewById(R.id.id_leku);
             leki_title = itemView.findViewById(R.id.leki_title);
             leki_title_dodatkowe_informacje = itemView.findViewById(R.id.leki_title_dodatkowe_informacje);
-            choroby_static_layout = itemView.findViewById(R.id.choroby_static_layout);
+            leki_static_layout = itemView.findViewById(R.id.leki_static_layout);
         }
     }
 }

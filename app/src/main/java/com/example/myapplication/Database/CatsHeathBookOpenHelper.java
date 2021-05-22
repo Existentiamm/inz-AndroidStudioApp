@@ -137,6 +137,16 @@ public class CatsHeathBookOpenHelper extends SQLiteOpenHelper {
         }
     }
 
+    public Cursor readAllDataCalendar() {
+        readFromDatabase();
+        String query = "SELECT * FROM " + CatsHealthBookDatabseContract.KalendarzEntry.TABLE_NAME;
+        if (db != null) {
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+
+
+    }
 
     public Cursor readAllDataMeds() {
         readFromDatabase();
@@ -210,6 +220,23 @@ public class CatsHeathBookOpenHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public void updateDate(String imie_kota, String row_id, String data, String dodatkowe_informacje) {
+        saveToDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(CatsHealthBookDatabseContract.KalendarzEntry.COLUMN_IMIE_KOTA, imie_kota);
+        cv.put(COLUMN_DATA, data);
+        cv.put(CatsHealthBookDatabseContract.KalendarzEntry.COLUMN_DODATKOWE_INFORMACJE, dodatkowe_informacje);
+
+        long result = db.update(CatsHealthBookDatabseContract.KalendarzEntry.TABLE_NAME, cv, "_id = ?", new String[]{row_id});
+
+        if (result == -1) {
+            Toast.makeText(context, "NIE DZIAŁA FUNKCJAAAAA", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Update", Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
 
     public void updateDisease(String imie_kota, String row_id, String nazwa_choroby, String dodatkowe_informacje) {
         saveToDatabase();

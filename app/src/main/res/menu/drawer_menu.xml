@@ -23,6 +23,11 @@
             android:id="@+id/nav_choroby"
             android:icon="@drawable/ic_choroby"
             android:title="Choroby"></item>
+        <item
+            android:id="@+id/nav_zapisane_daty"
+            android:icon="@drawable/ic_kalendarz"
+            android:title="Zapisane daty">
+        </item>
 
         <item
             android:id="@+id/nav_dodanie"

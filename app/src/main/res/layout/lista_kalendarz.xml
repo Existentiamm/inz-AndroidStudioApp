@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="10dp"
-    android:id="@+id/leki_static_layout">
+    android:id="@+id/kalendarz_static_layout">
 
     <androidx.cardview.widget.CardView
         style="@style/myCardView"
@@ -18,38 +18,38 @@
             android:padding="12dp">
 
             <TextView
-                android:id="@+id/imie_kota_leki"
+                android:id="@+id/imie_kota_kalendarz"
                 style="@style/Tittle_CardView"
                 android:text="imie kota"
-                app:layout_constraintBottom_toTopOf="@+id/leki_title"
-                app:layout_constraintEnd_toEndOf="@+id/leki_title"
-                app:layout_constraintStart_toStartOf="@+id/leki_title" />
+                app:layout_constraintBottom_toTopOf="@+id/data_title"
+                app:layout_constraintEnd_toEndOf="@+id/data_title"
+                app:layout_constraintStart_toStartOf="@+id/data_title" />
 
             <TextView
-                android:id="@+id/id_leku"
+                android:id="@+id/id_daty"
                 style="@style/Numbers"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/leki_title"
+                android:id="@+id/data_title"
                 style="@style/Tittle_CardView"
                 android:textSize="17dp"
-                android:text="@string/leki_title"
-                app:layout_constraintBottom_toTopOf="@+id/leki_title_dodatkowe_informacje"
+                android:text="@string/data_title"
+                app:layout_constraintBottom_toTopOf="@+id/data_title_dodatkowe_informacje"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/id_leku"
-                app:layout_constraintTop_toTopOf="@id/id_leku"/>
+                app:layout_constraintStart_toEndOf="@+id/id_daty"
+                app:layout_constraintTop_toTopOf="@id/id_daty"/>
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/leki_title_dodatkowe_informacje"
+                android:id="@+id/data_title_dodatkowe_informacje"
                 style="@style/DodatkoweInformacje"
                 android:text="@string/dodatkowe_informacje"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/leki_title">
+                app:layout_constraintTop_toBottomOf="@+id/data_title">
 
             </androidx.appcompat.widget.AppCompatTextView>
         </androidx.constraintlayout.widget.ConstraintLayout>
