@@ -98,7 +98,7 @@ public class AktualizacjaLekow extends AppCompatActivity {
         leki_lista = new String[cursor.getCount()];
 
         int i = 0;
-        if(cursor.getCount() >0 ) {
+        if(cursor.getCount() > 0 ) {
             do {
                 leki_lista[i] = cursor.getString(0);
                 i++;

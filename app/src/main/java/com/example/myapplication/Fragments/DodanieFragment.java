@@ -68,10 +68,12 @@ public class DodanieFragment extends Fragment {
         koty_lista = new String[cursor.getCount()];
 
         int i = 0;
-        do {
-            koty_lista[i] = cursor.getString(0);
-            i++;
-        } while (cursor.moveToNext());
+        if(cursor.getCount() > 0) {
+            do {
+                koty_lista[i] = cursor.getString(0);
+                i++;
+            } while (cursor.moveToNext());
+        }
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_dropdown_item_1line, koty_lista);
         kotyAutoComplete.setAdapter(adapter);
     }
