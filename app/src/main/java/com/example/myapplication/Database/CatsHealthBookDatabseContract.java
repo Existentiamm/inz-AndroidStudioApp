@@ -35,7 +35,7 @@ public final class CatsHealthBookDatabseContract {
         public static final String SQL_CREATE_TABLE =
                 "CREATE TABLE " + TABLE_NAME + " (" +
                         _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                        COLUMN_IMIE_KOTA + " TEXT NOT NULL, " +
+                        COLUMN_IMIE_KOTA + " TEXT NOT NULL UNIQUE, " +
                         COLUMN_DATA + " TEXT NOT NULL, " +
                         COLUMN_DODATKOWE_INFORMACJE + " TEXT NOT NULL) ";
 

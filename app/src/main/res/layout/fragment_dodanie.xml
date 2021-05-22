@@ -43,6 +43,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
+                android:maxLength="4"
                 android:hint="rok urodzenia zwierzaka" />
 
 
@@ -52,6 +53,7 @@
                 android:layout_gravity="center_horizontal"
                 android:text="@string/zapisz"
                 />
+
 
 
         </LinearLayout>

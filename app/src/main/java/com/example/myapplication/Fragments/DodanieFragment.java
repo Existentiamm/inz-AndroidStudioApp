@@ -12,6 +12,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,6 +22,7 @@ import com.example.myapplication.Database.CatsHeathBookOpenHelper;
 import com.example.myapplication.R;
 
 import java.util.Calendar;
+import java.util.Date;
 
 public class DodanieFragment extends Fragment {
     private DatePickerDialog dataPickerDialog;
@@ -30,6 +32,8 @@ public class DodanieFragment extends Fragment {
     private String[] leki_lista, choroby_lista, zabiegi_lista, koty_lista;
     private CatsHeathBookOpenHelper myDB;
     private AutoCompleteTextView lekiAutoComplete, chorobyAutoComplete, zabiegiAutoComplete, kotyAutoComplete;
+    int checkingDate;
+    int actualYear;
 
     @Nullable
     @Override
@@ -45,10 +49,9 @@ public class DodanieFragment extends Fragment {
         wiek_edit_text = getView().findViewById(R.id.wiek_edit_text);
         zapisz_dane = getView().findViewById(R.id.zapisz_dane);
 
-
-
+        calendar = Calendar.getInstance();
+        actualYear = calendar.get(Calendar.YEAR);
         ZapiszDane();
-        //PokazKalendarz();
         pokazDaneAutoComplete();
 
     }
@@ -130,28 +133,20 @@ public class DodanieFragment extends Fragment {
 
     }
 
-    private void PokazKalendarz() {
-        pokaz_kalendarz.setOnClickListener(v -> {
-            calendar = Calendar.getInstance();
-            int day = calendar.get(Calendar.DAY_OF_MONTH);
-            int month = calendar.get(Calendar.MONTH);
-            int year = calendar.get(Calendar.YEAR);
-
-            dataPickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
-                @Override
-                public void onDateSet(DatePicker view1, int year, int month, int dayOfMonth) {
-                    data_edit_text.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
-                }
-            }, day, month, year);
-            dataPickerDialog.show();
-        });
-    }
 
     private void ZapiszDane() {
+
         zapisz_dane.setOnClickListener(v -> {
-            myDB = new CatsHeathBookOpenHelper(getActivity());
-            myDB.addCat(imie_edit_text.getText().toString().trim(),
-                    wiek_edit_text.getText().toString().trim());
+            checkingDate = Integer.parseInt(wiek_edit_text.getText().toString());
+            if(actualYear < checkingDate){
+                Toast.makeText(getActivity(), "Niepoprawny rok", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                myDB = new CatsHeathBookOpenHelper(getActivity());
+
+                myDB.addCat(imie_edit_text.getText().toString().trim(),
+                        wiek_edit_text.getText().toString().trim());
+            }
         });
     }
 
