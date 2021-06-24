@@ -1,7 +1,6 @@
 package com.example.myapplication.Fragments;
 
 import android.app.DatePickerDialog;
-import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -22,7 +20,6 @@ import com.example.myapplication.Database.CatsHeathBookOpenHelper;
 import com.example.myapplication.R;
 
 import java.util.Calendar;
-import java.util.Date;
 
 public class DodanieFragment extends Fragment {
     private DatePickerDialog dataPickerDialog;
@@ -57,15 +54,12 @@ public class DodanieFragment extends Fragment {
     }
 
     private void pokazDaneAutoComplete() {
-        //pokazZabiegiAutoComplete();
-        //pokazLekiAutoComplete();
-        //pokazChorobyAutoComplete();
         pokazImieKotaAutoComplete();
     }
 
     private void pokazImieKotaAutoComplete() {
         myDB = new CatsHeathBookOpenHelper(getActivity());
-        myDB.readFromDatabaseOnlyImieKota();
+        myDB.readFromDatabaseOnlyOneCat();
         Cursor cursor = myDB.getCursor(); //pobranie kursora z Helpera
         koty_lista = new String[0];
         koty_lista = new String[cursor.getCount()];
@@ -81,57 +75,6 @@ public class DodanieFragment extends Fragment {
         kotyAutoComplete.setAdapter(adapter);
     }
 
-    private void pokazZabiegiAutoComplete() {
-
-        myDB = new CatsHeathBookOpenHelper(getActivity());
-        myDB.readFromDatabaseOnlyNazwaZabiegu();
-        Cursor cursor = myDB.getCursor();
-        zabiegi_lista = new String[0];
-        zabiegi_lista = new String[cursor.getCount()];//create array string based on numbers of row
-        int i = 0;
-        do {
-            zabiegi_lista[i] = cursor.getString(0);
-            i++;
-        } while (cursor.moveToNext());
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_dropdown_item_1line, zabiegi_lista);
-        zabiegiAutoComplete.setAdapter(adapter);
-    }
-
-
-    private void pokazLekiAutoComplete() {
-        myDB = new CatsHeathBookOpenHelper(getActivity());
-        myDB.readFromDatabaseOnlyNazwaLeku();
-        Cursor cursor = myDB.getCursor();
-        leki_lista = new String[0];
-        leki_lista = new String[cursor.getCount()];
-        int i = 0;
-        do {
-            leki_lista[i] = cursor.getString(0);
-            i++;
-        } while (cursor.moveToNext());
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_dropdown_item_1line, leki_lista);
-        lekiAutoComplete.setAdapter(adapter);
-
-    }
-
-    private void pokazChorobyAutoComplete() {
-        myDB = new CatsHeathBookOpenHelper(getActivity());
-        myDB.readFromDatabaseOnlyNazwaChoroby();
-        Cursor cursor = myDB.getCursor();
-        choroby_lista = new String[0];
-        choroby_lista = new String[cursor.getCount()];
-
-        int i = 0;
-        do {
-            choroby_lista[i] = cursor.getString(0);
-            i++;
-        }
-        while (cursor.moveToNext());
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_dropdown_item_1line, choroby_lista);
-        chorobyAutoComplete.setAdapter(adapter);
-
-    }
 
 
     private void ZapiszDane() {

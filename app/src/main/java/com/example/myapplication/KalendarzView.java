@@ -6,13 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.myapplication.Database.CatsHeathBookOpenHelper;
 
@@ -83,7 +81,7 @@ public class KalendarzView extends AppCompatActivity {
 
     private void pokazImieKotaAutoComplete() {
         myDB = new CatsHeathBookOpenHelper(KalendarzView.this);
-        myDB.readFromDatabaseOnlyImieKota();
+        myDB.readFromDatabaseOnlyOneCat();
         Cursor cursor = myDB.getCursor(); //pobranie kursora z Helpera
         koty_lista = new String[0];
         koty_lista = new String[cursor.getCount()];

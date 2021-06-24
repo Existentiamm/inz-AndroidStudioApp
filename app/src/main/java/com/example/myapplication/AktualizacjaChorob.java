@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -14,8 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.Database.CatsHeathBookOpenHelper;
-
-import org.w3c.dom.Text;
 
 public class AktualizacjaChorob extends AppCompatActivity {
     AutoCompleteTextView edytuj_choroby_edit_text, edytuj_choroby_imie_kota_edit_text;
@@ -44,7 +41,7 @@ public class AktualizacjaChorob extends AppCompatActivity {
     }
     private void pokazImieKotaAutoComplete() {
         myDB = new CatsHeathBookOpenHelper(AktualizacjaChorob.this);
-        myDB.readFromDatabaseOnlyImieKota();
+        myDB.readFromDatabaseOnlyOneCat();
         Cursor cursor = myDB.getCursor(); //pobranie kursora z Helpera
         choroby_lista = new String[0];
         choroby_lista = new String[cursor.getCount()];
@@ -73,7 +70,7 @@ public class AktualizacjaChorob extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Usunąć " + diseases + "?");
         builder.setMessage("Jesteś pewien, że chcesz usunąć " + diseases + "?");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Tak", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 myDB = new CatsHeathBookOpenHelper(AktualizacjaChorob.this);
@@ -81,7 +78,7 @@ public class AktualizacjaChorob extends AppCompatActivity {
                 finish();
             }
         });
-        builder.setNegativeButton("Nope", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Nie", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 

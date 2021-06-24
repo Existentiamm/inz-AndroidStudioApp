@@ -9,19 +9,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.SimpleCursorAdapter;
-import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.myapplication.Database.CatsHealthBookDatabseContract;
 import com.example.myapplication.Database.CatsHeathBookOpenHelper;
 import com.example.myapplication.Fragments.ChorobyFragment;
 import com.example.myapplication.Fragments.DodanieFragment;
@@ -31,18 +25,13 @@ import com.example.myapplication.Fragments.ZabiegiFragment;
 import com.example.myapplication.Fragments.ZapisaneDatyFragment;
 import com.google.android.material.internal.NavigationMenu;
 import com.google.android.material.navigation.NavigationView;
-import com.example.myapplication.KalendarzView;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import io.github.yavski.fabspeeddial.FabSpeedDial;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     final private String TAG = getClass().getSimpleName();
     private DrawerLayout drawerLayout;
     private Toolbar toolbar;
-    private FabSpeedDial fabSpeedDial;
+
     private Button addMeds, addDiseases, addTreatments;
     CatsHeathBookOpenHelper myDB;
 
@@ -56,7 +45,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         openDatabase();
         createFragments();
-        //handlingFAB();
         handlingNavigationDrawer();
 
 
@@ -94,26 +82,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //bedzie nam się kręci przycisk(przełącznik==toggle) razem z działaniem całego navigationBar
     }
 
-    private void handlingFAB() {
-        //fabSpeedDial = (FabSpeedDial) findViewById(R.id.fabSpeedDial);
-        fabSpeedDial.setMenuListener(new FabSpeedDial.MenuListener() {
-            @Override
-            public boolean onPrepareMenu(NavigationMenu navigationMenu) {
-                return true; //false : nie pokazuj menu
-            }
-
-            @Override
-            public boolean onMenuItemSelected(MenuItem menuItem) {
-                Toast.makeText(MainActivity.this, "" + menuItem.getTitle(), Toast.LENGTH_SHORT).show();
-                return true; //po kliknięciu na przycisk pokazuje jako Toast tytuł z extra_menu.
-            }
-
-            @Override
-            public void onMenuClosed() {
-
-            }
-        });
-    }
 
 
     @Override

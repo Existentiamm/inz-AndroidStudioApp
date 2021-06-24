@@ -46,7 +46,7 @@ public class DodajZabiegi extends AppCompatActivity {
 
     private void pokazImieKotaAutoComplete() {
         myDB = new CatsHeathBookOpenHelper(DodajZabiegi.this);
-        myDB.readFromDatabaseOnlyImieKota();
+        myDB.readFromDatabaseOnlyOneCat();
         Cursor cursor = myDB.getCursor(); //pobranie kursora z Helpera
         zabiegi_lista = new String[0];
         zabiegi_lista = new String[cursor.getCount()];

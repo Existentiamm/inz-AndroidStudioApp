@@ -22,16 +22,8 @@ import java.util.ArrayList;
 
 public class ChorobyAdapter extends RecyclerView.Adapter<ChorobyAdapter.MyViewHolder> {
     private Context context;
-    private Activity activity; //do odświeżania Activity
     private ArrayList imie_kota_choroby, id_choroby, diseases, dodatkowe_informacje;
 
-    public ChorobyAdapter(Activity activity, Context context, ArrayList id_choroby, ArrayList diseases, ArrayList dodatkowe_informacje) {
-        this.activity = activity;
-        this.context = context;
-        this.id_choroby = id_choroby;
-        this.diseases = diseases;
-        this.dodatkowe_informacje = dodatkowe_informacje;
-    }
 
     public ChorobyAdapter(Context context, ArrayList imie_kota_choroby, ArrayList id_choroby, ArrayList diseases, ArrayList dodatkowe_informacje) {
         this.imie_kota_choroby = imie_kota_choroby;

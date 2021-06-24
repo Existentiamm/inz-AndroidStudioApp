@@ -73,7 +73,7 @@ public class AktualizacjaDat extends AppCompatActivity {
 
     private void pokazImieKotaAutoComplete() {
         myDB = new CatsHeathBookOpenHelper(AktualizacjaDat.this);
-        myDB.readFromDatabaseOnlyImieKota();
+        myDB.readFromDatabaseOnlyOneCat();
         Cursor cursor = myDB.getCursor(); //pobranie kursora z Helpera
         daty_lista = new String[0];
         daty_lista = new String[cursor.getCount()];

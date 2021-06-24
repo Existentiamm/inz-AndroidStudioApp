@@ -2,9 +2,9 @@ package com.example.myapplication.Database;
 
 import android.provider.BaseColumns;
 
-public final class CatsHealthBookDatabseContract {
+public final class CatsHealthBookDatabaseContract {
 
-    private CatsHealthBookDatabseContract() {
+    private CatsHealthBookDatabaseContract() {
     } //prywatny konstruktor
 
 

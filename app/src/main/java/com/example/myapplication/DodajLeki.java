@@ -45,7 +45,7 @@ public class DodajLeki extends AppCompatActivity {
 
     private void pokazImieKotaAutoComplete() {
         myDB = new CatsHeathBookOpenHelper(DodajLeki.this);
-        myDB.readFromDatabaseOnlyImieKota();
+        myDB.readFromDatabaseOnlyOneCat();
         Cursor cursor = myDB.getCursor(); //pobranie kursora z Helpera
         leki_lista = new String[0];
         leki_lista = new String[cursor.getCount()];
@@ -64,7 +64,7 @@ public class DodajLeki extends AppCompatActivity {
     public void zapiszDane() {
         zapisz_dane_leki.setOnClickListener(v -> {
             myDB = new CatsHeathBookOpenHelper(DodajLeki.this);
-            myDB.addMed(dodaj_leki_imie_kota_edit_text.getText().toString().trim(), dodaj_leki_edit_text.getText().toString().trim(),
+            myDB.addMedicament(dodaj_leki_imie_kota_edit_text.getText().toString().trim(), dodaj_leki_edit_text.getText().toString().trim(),
                     dodaj_leki_dodatkowe_informacje_edit_text.getText().toString().trim());
         });
 

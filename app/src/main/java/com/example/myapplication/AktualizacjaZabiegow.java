@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.database.Cursor;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -102,7 +101,7 @@ public class AktualizacjaZabiegow extends AppCompatActivity {
 
     private void pokazImieKotaAutoComplete() {
         myDB = new CatsHeathBookOpenHelper(AktualizacjaZabiegow.this);
-        myDB.readFromDatabaseOnlyImieKota();
+        myDB.readFromDatabaseOnlyOneCat();
         Cursor cursor = myDB.getCursor(); //pobranie kursora z Helpera
         zabiegi_lista = new String[0];
         zabiegi_lista = new String[cursor.getCount()];

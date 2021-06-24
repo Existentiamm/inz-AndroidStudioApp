@@ -35,13 +35,13 @@ public class AktualizacjaLekow extends AppCompatActivity {
         button_usun_z_listy_lekow  = findViewById(R.id.button_usun_z_listy_lekow);
 
         getIntentData();
-        deleteMed();
+        deleteMedicament();
         UpdateMed();
 
     }
 
 
-    private void deleteMed() {
+    private void deleteMedicament() {
         button_usun_z_listy_lekow.setOnClickListener(v->{
             confirmDialog();
         });
@@ -55,7 +55,7 @@ public class AktualizacjaLekow extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 myDB = new CatsHeathBookOpenHelper(AktualizacjaLekow.this);
-                myDB.deleteMed(_id);
+                myDB.deleteMedicament(_id);
             }
         });
 
@@ -78,7 +78,7 @@ public class AktualizacjaLekow extends AppCompatActivity {
                imie_kota = edytuj_leki_imie_kota_edit_text.getText().toString().trim();
                meds = edytuj_leki_edit_text.getText().toString().trim();
                dodatkowe_informacje = edytuj_leki_dodatkowe_informacje_edit_text.getText().toString().trim();
-               myDB.updateMed(imie_kota, _id, meds, dodatkowe_informacje);
+               myDB.updateMedicament(imie_kota, _id, meds, dodatkowe_informacje);
            }
        });
     }
@@ -92,7 +92,7 @@ public class AktualizacjaLekow extends AppCompatActivity {
 
     private void pokazImieKotaAutoComplete() {
         myDB = new CatsHeathBookOpenHelper(AktualizacjaLekow.this);
-        myDB.readFromDatabaseOnlyImieKota();
+        myDB.readFromDatabaseOnlyOneCat();
         Cursor cursor = myDB.getCursor(); //pobranie kursora z Helpera
         leki_lista = new String[0];
         leki_lista = new String[cursor.getCount()];

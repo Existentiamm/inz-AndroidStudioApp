@@ -21,15 +21,15 @@
         <activity
             android:name=".AktualizacjaZabiegow"
             android:label="Aktualizacja zabiegu"
-            android:parentActivityName=".DodajZabiegi" />
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".AktualizacjaLekow"
             android:label="Aktualizacja leku"
-            android:parentActivityName=".DodajLeki" />
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".AktualizacjaChorob"
             android:label="Aktualizacja choroby"
-            android:parentActivityName=".DodajLeki" />
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".DodajZabiegi"
             android:label="Dodanie zabiegu"

@@ -3,7 +3,7 @@ package com.example.myapplication;
 public class Data {
 
     public static final String[] meds = new String[]{
-            "Odrobaczenie","Higiena jamy ustnej", "Pielęgnacja oczu i uszu", "Uspokojenie", "Pięlegnacja i dermatologia", "Chronienie łapek"
+            "Odrobaczenie","Higiena jamy ustnej", "Pielęgnacja oczu i uszu", "Uspokojenie", "Pięlegnacja i dermatologia", "Chronienie łapek",
     };
 
 
